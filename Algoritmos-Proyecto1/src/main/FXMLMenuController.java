@@ -5,7 +5,10 @@ import domain.DoublyLinkedList;
 import domain.SinglyLinkedList;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -27,6 +30,12 @@ public class FXMLMenuController implements Initializable {
     SinglyLinkedList sheduleList = new SinglyLinkedList();//Lista para el modulo de horarios
     
     CircularDoublyLinkedList enrollmentList = new CircularDoublyLinkedList();//Lista para el modulo de matricula
+    
+    //TextFields para poder iniciar sesion
+    @FXML
+    private TextField textUser;
+    @FXML
+    private PasswordField textPassword;
     
     
     
