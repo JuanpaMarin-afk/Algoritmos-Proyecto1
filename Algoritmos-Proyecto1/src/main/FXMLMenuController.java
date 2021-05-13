@@ -28,6 +28,13 @@ public class FXMLMenuController implements Initializable {
     
     CircularDoublyLinkedList enrollmentList = new CircularDoublyLinkedList();//Lista para el modulo de matricula
     
+    
+    
+    
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
        
