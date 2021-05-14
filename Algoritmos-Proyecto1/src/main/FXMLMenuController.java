@@ -109,12 +109,23 @@ public class FXMLMenuController implements Initializable {
     private void selectComboBoxRegister(ActionEvent event) {
     }
 
+    //USER
     @FXML
     private void menuUserAdd(ActionEvent event) {
         this.gridPaneRegister.setVisible(true);
         this.btnRegister.setVisible(true);
     }
 
+        @FXML
+    private void btnRegister(ActionEvent event) {
+        
+            try {
+                
+            } catch (Exception e) {
+                
+            }
+    }
+    
     @FXML
     private void btnLogin(ActionEvent event) {
     }
@@ -123,8 +134,5 @@ public class FXMLMenuController implements Initializable {
     private void btnExit(ActionEvent event) {
     }
 
-    @FXML
-    private void btnRegister(ActionEvent event) {
-    }
 
 }//end class
