@@ -126,10 +126,18 @@ public class FXMLMenuController implements Initializable {
         try {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
-                if (!loginList.contains(security)) {
-                    loginList.add(security);
-                    System.out.println(loginList.toString());
-                }
+                
+
+                    if (!loginList.contains(security) || loginList.isEmpty()) {
+                        loginList.add(security);
+                        System.out.println(loginList.toString());
+                        
+                    } else {
+                        
+                        System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
+                        
+                    }
+                
                 
             }
         } catch (Exception e) {
