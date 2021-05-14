@@ -2,6 +2,7 @@ package main;
 
 import domain.CircularDoublyLinkedList;
 import domain.DoublyLinkedList;
+import domain.Security;
 import domain.SinglyLinkedList;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -44,7 +45,7 @@ public class FXMLMenuController implements Initializable {
     private TextField textUser;
     @FXML
     private PasswordField textPassword;
-    
+
     //Botones 
     @FXML
     private Button btnLogin;
@@ -57,21 +58,21 @@ public class FXMLMenuController implements Initializable {
     //GridPane de Reistrar User
     @FXML
     private GridPane gridUser;
-    
-    //ComboBox para definir si es administrador o estudiante
-    @FXML
-    private ComboBox comboBoxUser;
-    
+
     //Boton de registrar usuario
     @FXML
     private Button btnRegisterUser;
-    
+
+    //ComboBox para definir si es administrador o estudiante
+    @FXML
+    private ComboBox comboBoxUser;
+
     //TextFiel de registrar nombre y contraseña
     @FXML
     private TextField txtFielName;
     @FXML
     private TextField txtFielPasword;
-    
+
     //Menus Items de User
     @FXML
     private MenuItem menuUserAdd;
@@ -81,15 +82,12 @@ public class FXMLMenuController implements Initializable {
     private MenuItem menuUserRemove;
     @FXML
     private MenuItem menuUserModify;
-    
+
     //Tabla de User
     @FXML
     private TableView<?> tableUser;
-    
+
     //**************************  fin MenuItemUser   **************************
-
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
@@ -100,17 +98,16 @@ public class FXMLMenuController implements Initializable {
         comboBoxUser.setItems(list);
     }
 
-
     //************************** USER **************************
     @FXML
     private void menuUserAdd(ActionEvent event) {
         this.gridUser.setVisible(true);
         this.btnRegisterUser.setVisible(true);
     }
-        @FXML
+
+    @FXML
     private void menuUserDisplay(ActionEvent event) {
     }
-
 
     @FXML
     private void menuUserRemove(ActionEvent event) {
@@ -119,44 +116,45 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void menuUserModify(ActionEvent event) {
     }
-    
+
     private void btnRegister(ActionEvent event) {
-        
-            try {
+        try {
+            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
+                Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
                 
-            } catch (Exception e) {
+                loginList.add(security);
                 
             }
+        } catch (Exception e) {
+
+        }
     }
+
     @FXML
     private void comboBoxUser(ActionEvent event) {
     }
+
     @FXML
     private void btnRegisterUser(ActionEvent event) {
     }
     //************************** fin USER **************************
-    
-    
-    
+
     @FXML
-    private void btnLogin(ActionEvent event) {
+    private void btnLogin(ActionEvent event) {//Inicia Sesion
+
     }
 
     @FXML
-    private void btnExit(ActionEvent event) {
+    private void btnExit(ActionEvent event) {//Cierra Sesion
+
     }
 
     @FXML
-    private void btnClean(ActionEvent event) {
+    private void btnClean(ActionEvent event) {//Limpia la pantalla
         //User
         this.gridUser.setVisible(false);
         this.btnRegisterUser.setVisible(false);
-        
-        
-        
+
     }
-
-
-
 
 }//end class
