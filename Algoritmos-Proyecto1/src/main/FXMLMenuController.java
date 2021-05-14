@@ -5,13 +5,16 @@ import domain.DoublyLinkedList;
 import domain.Security;
 import domain.SinglyLinkedList;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
@@ -140,10 +143,19 @@ public class FXMLMenuController implements Initializable {
                     System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
 
                 }
-                
-                
-                
-            }else{
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("");
+                alert.setContentText("Do you want to add another User?");
+
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK) {
+                    menuUserAdd(event);
+                } else {
+                    btnClean(event);
+                }
+
+            } else {
                 System.out.println("debe llenar todos los espacios");
             }
         } catch (Exception e) {
