@@ -179,7 +179,14 @@ public class FXMLMenuController implements Initializable {
         //User
         this.gridUser.setVisible(false);
         this.btnRegisterUser.setVisible(false);
-
+        this.comboBoxUser.setValue("Administrator");
+        this.txtFielName.setText("");
+        this.textPassword.setText("");
+        
+        
+        
+        
+        
     }
 
 }//end class
