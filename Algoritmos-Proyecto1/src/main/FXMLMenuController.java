@@ -104,44 +104,46 @@ public class FXMLMenuController implements Initializable {
         this.gridUser.setVisible(true);
         this.btnRegisterUser.setVisible(true);
     }
-    
+
     @FXML
     private void menuUserDisplay(ActionEvent event) {
     }
-    
+
     @FXML
     private void menuUserRemove(ActionEvent event) {
     }
-    
+
     @FXML
     private void menuUserModify(ActionEvent event) {
     }
-    
+
     @FXML
     private void comboBoxUser(ActionEvent event) {
     }
-    
+
     @FXML
     private void btnRegisterUser(ActionEvent event) {
         try {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
-                
-                
-                    if (!loginList.contains(security) || loginList.isEmpty()) {//Si no contiene al user, agregarlo //
-                        loginList.add(security);
-                        System.out.println(loginList.toString());
-                        
-                    } else {
-                        
-                        System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
-                        
-                    }
-                
-                
+
+                if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
+                    loginList.add(security);
+                    System.out.println(loginList.toString());
+                }
+                if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
+                    loginList.add(security);
+                    System.out.println(loginList.toString());
+
+                } else {
+
+                    System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
+
+                }
+
             }
         } catch (Exception e) {
-            
+
         }
     }
     //************************** fin USER **************************
@@ -150,18 +152,18 @@ public class FXMLMenuController implements Initializable {
     private void btnLogin(ActionEvent event) {//Inicia Sesion
 
     }
-    
+
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
 
     }
-    
+
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
         //User
         this.gridUser.setVisible(false);
         this.btnRegisterUser.setVisible(false);
-        
+
     }
-    
+
 }//end class
