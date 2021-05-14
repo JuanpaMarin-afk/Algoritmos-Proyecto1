@@ -1,5 +1,6 @@
 package main;
 
+import data.FileXML;
 import domain.CircularDoublyLinkedList;
 import domain.DoublyLinkedList;
 import domain.Security;
@@ -92,6 +93,9 @@ public class FXMLMenuController implements Initializable {
     private TableView<?> tableUser;
 
     //**************************  fin MenuItemUser   **************************
+    FileXML fileXml;
+    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
@@ -101,6 +105,14 @@ public class FXMLMenuController implements Initializable {
         //Le agrega los dos items al combo antes definidos
         comboBoxUser.setValue("Administrator");
         comboBoxUser.setItems(list);
+
+        String address = "C:/Users/juanp/OneDrive/Documentos/NetBeansProjects/Algoritmos-Proyecto1/Algoritmos-Proyecto1/";
+        fileXml = new FileXML();
+
+        if (!fileXml.exist(address + "UserSystem.xml")) {
+            fileXml.createXML("Users", address, "UserSystem");
+        }
+
     }
 
     //************************** USER **************************
