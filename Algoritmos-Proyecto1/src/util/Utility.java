@@ -5,6 +5,7 @@
  */
 package util;
 
+import domain.Security;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,7 +15,7 @@ import java.util.Date;
  * @author juanp
  */
 public class Utility {
-    
+
     public static int random() {
         return 1 + (int) Math.floor(Math.random() * (50 - 40 + 1) + 40);
     }
@@ -67,9 +68,10 @@ public class Utility {
                 String s1 = (String) a;
                 String s2 = (String) b;
                 return s1.compareTo(s2) == 0;
-
-                
-                
+            case "security":
+                Security secu1 = (Security) a;
+                Security secu2 = (Security) b;
+                return secu1.getUser().compareTo(secu2.getUser()) == 0;
         }
         return false; // en cualquier otro caso 
     }
@@ -81,9 +83,10 @@ public class Utility {
         if (a instanceof String && b instanceof String) {
             return "string";
         }
+        if (a instanceof Security && b instanceof Security) {
+            return "security";
+        }
 
-        
-        
         return "Unknown";
     }
 
@@ -115,5 +118,5 @@ public class Utility {
         }
         return false; // en cualquier otro caso 
     }
-    
+
 }//end class
