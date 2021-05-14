@@ -111,7 +111,8 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void menuUserAdd(ActionEvent event) {
-        System.out.println("Hola");
+        this.gridPaneRegister.setVisible(true);
+        this.btnRegister.setVisible(true);
     }
 
     @FXML
