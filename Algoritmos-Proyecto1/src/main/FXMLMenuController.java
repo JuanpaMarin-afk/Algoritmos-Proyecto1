@@ -10,9 +10,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
@@ -46,16 +49,29 @@ public class FXMLMenuController implements Initializable {
     //GridPane de registrar
     @FXML
     private GridPane gridPaneRegister;
-    //Labels incluidos en el gridPaneRegister
-    @FXML
-    private Label RegisterName;
-    @FXML
-    private Label ProfileRegister;
-    @FXML
-    private Label passwordRegister;
     //ComboBox para definir si es usuario o estudiante
     @FXML
     private ComboBox comboBoxRegister;
+    
+    //TextFiel de registrar nombre y contraseña
+    @FXML
+    private TextField txtFielName;
+    @FXML
+    private TextField txtFielPasword;
+    //Labels de los componentes de registrar
+    @FXML
+    private Label labelNameRegister;
+    @FXML
+    private Label labelProfileRegister;
+    @FXML
+    private Label labelPasswordRegister;
+    //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
+    @FXML
+    private TableView<?> tableDisplayUser;
+    @FXML
+    private Button btnLogin;
+    @FXML
+    private Button btnExit;
     
     
     
