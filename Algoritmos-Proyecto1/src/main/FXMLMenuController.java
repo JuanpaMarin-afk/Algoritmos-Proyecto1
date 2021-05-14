@@ -161,7 +161,6 @@ public class FXMLMenuController implements Initializable {
                 alert.setTitle("Information");
                 alert.setHeaderText(null);
                 alert.setContentText("You need to fill all the empty field.");
-
                 alert.showAndWait();
             }
         } catch (Exception e) {
