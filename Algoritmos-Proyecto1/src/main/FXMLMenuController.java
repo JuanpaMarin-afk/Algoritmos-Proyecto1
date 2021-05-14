@@ -148,6 +148,12 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnClean(ActionEvent event) {
+        //User
+        this.gridUser.setVisible(true);
+        this.btnRegisterUser.setVisible(true);
+        
+        
+        
     }
 
 
