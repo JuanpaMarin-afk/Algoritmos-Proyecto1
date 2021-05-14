@@ -93,7 +93,7 @@ public class FXMLMenuController implements Initializable {
     private TableView<?> tableUser;
 
     //**************************  fin MenuItemUser   **************************
-    FileXML fileXml;
+    FileXML xmlUser;
     
 
     @Override
@@ -106,11 +106,12 @@ public class FXMLMenuController implements Initializable {
         comboBoxUser.setValue("Administrator");
         comboBoxUser.setItems(list);
 
+        //XML PARA USER
         String address = "C:/Users/juanp/OneDrive/Documentos/NetBeansProjects/Algoritmos-Proyecto1/Algoritmos-Proyecto1/";
-        fileXml = new FileXML();
+        xmlUser = new FileXML();
 
-        if (!fileXml.exist(address + "UserSystem.xml")) {
-            fileXml.createXML("Users", address, "UserSystem");
+        if (!xmlUser.exist(address + "UserSystem.xml")) {
+            xmlUser.createXML("Users", address, "UserSystem");
         }
 
     }
@@ -146,6 +147,7 @@ public class FXMLMenuController implements Initializable {
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
+                    
                     System.out.println("agrego");
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
