@@ -117,25 +117,22 @@ public class FXMLMenuController implements Initializable {
     private void menuUserModify(ActionEvent event) {
     }
 
-    private void btnRegister(ActionEvent event) {
-        try {
-            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
-                Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
-                
-                loginList.add(security);
-                
-            }
-        } catch (Exception e) {
-
-        }
-    }
-
     @FXML
     private void comboBoxUser(ActionEvent event) {
     }
 
     @FXML
     private void btnRegisterUser(ActionEvent event) {
+        try {
+            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
+                Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
+                
+                loginList.add(security);
+                System.out.println(loginList.toString());
+            }
+        } catch (Exception e) {
+
+        }
     }
     //************************** fin USER **************************
 

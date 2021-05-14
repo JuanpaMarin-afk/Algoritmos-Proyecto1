@@ -148,7 +148,7 @@
                   <Font name="Bodoni MT" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnClean" layoutX="760.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: transparent;">
+            <Button fx:id="btnClean" layoutX="13.0" layoutY="567.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="111.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
