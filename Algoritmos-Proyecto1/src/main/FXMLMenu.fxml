@@ -10,6 +10,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -53,19 +55,19 @@
                 <Menu mnemonicParsing="false" text="User">
                   <items>
                     <MenuItem fx:id="menuUserAdd" mnemonicParsing="false" onAction="#menuUserAdd" text="Add User" />
-                        <MenuItem fx:id="menuUserDisplay" mnemonicParsing="false" text="Display" />
-                        <MenuItem fx:id="menuUserSearch" mnemonicParsing="false" text="Search" />
-                        <MenuItem fx:id="menuUserRemove" mnemonicParsing="false" text="Remove" />
+                        <MenuItem fx:id="menuUserDisplay" mnemonicParsing="false" onAction="#menuUserDisplay" text="Display" />
+                        <MenuItem fx:id="menuUserModify" mnemonicParsing="false" onAction="#menuUserModify" text="Modify" />
+                        <MenuItem fx:id="menuUserRemove" mnemonicParsing="false" onAction="#menuUserRemove" text="Remove" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Careers">
                   <items>
-                    <MenuItem fx:id="menuCareerRemove" mnemonicParsing="false" text="Remove" />
+                    <MenuItem mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Student">
                   <items>
-                    <MenuItem fx:id="menuStudentRemove" mnemonicParsing="false" text="Remove" />
+                    <MenuItem mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Course">
@@ -107,18 +109,18 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ComboBox fx:id="comboBoxRegister" onAction="#selectComboBoxRegister" prefHeight="92.0" prefWidth="416.0" GridPane.columnIndex="1" />
-                  <Label fx:id="labelNameRegister" prefHeight="135.0" prefWidth="343.0" text="Name:" textFill="WHITE" GridPane.rowIndex="1">
+                  <ComboBox fx:id="comboBoxUser" onAction="#comboBoxUser" prefHeight="92.0" prefWidth="416.0" GridPane.columnIndex="1" />
+                  <Label prefHeight="135.0" prefWidth="343.0" text="Name:" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font name="Bodoni MT" size="39.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelProfileRegister" prefHeight="135.0" prefWidth="343.0" text="Profile:" textFill="WHITE">
+                  <Label prefHeight="135.0" prefWidth="343.0" text="Profile:" textFill="WHITE">
                      <font>
                         <Font name="Bodoni MT" size="39.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelPasswordRegister" layoutX="10.0" layoutY="145.0" prefHeight="135.0" prefWidth="343.0" text="Password:" textFill="WHITE" GridPane.rowIndex="2">
+                  <Label layoutX="10.0" layoutY="145.0" prefHeight="135.0" prefWidth="343.0" text="Password:" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
                         <Font name="Bodoni MT" size="39.0" />
                      </font>
@@ -141,10 +143,19 @@
                 <TableColumn prefWidth="384.0" text="Profile" />
               </columns>
             </TableView>
-            <Button fx:id="btnRegister" layoutX="692.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnRegister" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
+            <Button fx:id="btnRegisterUser" layoutX="692.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnRegisterUser" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
                <font>
                   <Font name="Bodoni MT" size="19.0" />
                </font>
+            </Button>
+            <Button fx:id="btnClean" layoutX="760.0" layoutY="546.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="111.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../util/s.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
          </children></AnchorPane>
    </center>

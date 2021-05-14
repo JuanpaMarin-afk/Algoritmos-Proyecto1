@@ -44,55 +44,51 @@ public class FXMLMenuController implements Initializable {
     private TextField textUser;
     @FXML
     private PasswordField textPassword;
-
-    //GridPane de Reistrar User
-    @FXML
-    private GridPane gridPaneRegister;
-    //ComboBox para definir si es usuario o estudiante
-    @FXML
-    private ComboBox comboBoxRegister;
-    @FXML
-    private Button btnRegister;
-
-    //TextFiel de registrar nombre y contraseña
-    @FXML
-    private TextField txtFielName;
-    @FXML
-    private TextField txtFielPasword;
-    //***********************************************
-
-    //Labels de los componentes de registrar
-    @FXML
-    private Label labelNameRegister;
-    @FXML
-    private Label labelProfileRegister;
-    @FXML
-    private Label labelPasswordRegister;
-
-    //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
-    @FXML
-    private TableView<?> tableDisplayUser;
-
+    
     //Botones de login, exit y registrar
     @FXML
     private Button btnLogin;
     @FXML
     private Button btnExit;
 
-    //MenuItem User
+    //**************************  MenuItemUser   **************************
+    //GridPane de Reistrar User
     @FXML
+    private GridPane gridPaneRegister;
+    
+    //ComboBox para definir si es administrador o estudiante
+    @FXML
+    private ComboBox comboBoxUser;
+    
+    //Boton de registrar usuario
+    @FXML
+    private Button btnRegisterUser;
+    
+    //TextFiel de registrar nombre y contraseña
+    @FXML
+    private TextField txtFielName;
+    @FXML
+    private TextField txtFielPasword;
+    
+    //Menus Items de User
+        @FXML
     private MenuItem menuUserAdd;
     @FXML
     private MenuItem menuUserDisplay;
     @FXML
-    private MenuItem menuUserSearch;
-    @FXML
     private MenuItem menuUserRemove;
+    @FXML
+    private MenuItem menuUserModify;
+    
+    //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
+    @FXML
+    private TableView<?> tableDisplayUser;
+    //**************************  fin MenuItemUser   **************************
+    @FXML
+    private Button btnClean;
 
-    @FXML
-    private MenuItem menuCareerRemove;
-    @FXML
-    private MenuItem menuStudentRemove;
+   
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -101,22 +97,29 @@ public class FXMLMenuController implements Initializable {
         //funcion del comboBox
         ObservableList<String> list = FXCollections.observableArrayList("Student", "Administrator");
         //Le agrega los dos items al combo antes definidos
-        comboBoxRegister.setItems(list);
+        comboBoxUser.setItems(list);
     }
 
-    //Metodo que le da acción al comboBox
-    @FXML
-    private void selectComboBoxRegister(ActionEvent event) {
-    }
 
-    //USER
+    //************************** USER **************************
     @FXML
     private void menuUserAdd(ActionEvent event) {
         this.gridPaneRegister.setVisible(true);
-        this.btnRegister.setVisible(true);
+        this.btnRegisterUser.setVisible(true);
+    }
+        @FXML
+    private void menuUserDisplay(ActionEvent event) {
     }
 
-        @FXML
+
+    @FXML
+    private void menuUserRemove(ActionEvent event) {
+    }
+
+    @FXML
+    private void menuUserModify(ActionEvent event) {
+    }
+    
     private void btnRegister(ActionEvent event) {
         
             try {
@@ -125,6 +128,15 @@ public class FXMLMenuController implements Initializable {
                 
             }
     }
+    @FXML
+    private void comboBoxUser(ActionEvent event) {
+    }
+    @FXML
+    private void btnRegisterUser(ActionEvent event) {
+    }
+    //************************** fin USER **************************
+    
+    
     
     @FXML
     private void btnLogin(ActionEvent event) {
@@ -133,6 +145,12 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnExit(ActionEvent event) {
     }
+
+    @FXML
+    private void btnClean(ActionEvent event) {
+    }
+
+
 
 
 }//end class
