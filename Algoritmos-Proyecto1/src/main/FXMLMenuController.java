@@ -97,6 +97,8 @@ public class FXMLMenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
+        
+        //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
        //funcion del comboBox
         ObservableList<String> list = FXCollections.observableArrayList("Student","User");
         //Le agrega los dos items al combo antes definidos
