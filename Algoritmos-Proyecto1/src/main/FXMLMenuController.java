@@ -95,6 +95,7 @@ public class FXMLMenuController implements Initializable {
         //funcion del comboBox
         ObservableList<String> list = FXCollections.observableArrayList("Student", "Administrator");
         //Le agrega los dos items al combo antes definidos
+        comboBoxUser.setValue("Administrator");
         comboBoxUser.setItems(list);
     }
 
@@ -124,23 +125,26 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnRegisterUser(ActionEvent event) {
         try {
-            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
+            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("") && !this.comboBoxUser.getValue().toString().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
-                    System.out.println(loginList.toString() + "primer valor");
+                    System.out.println("agrego");
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
-                    System.out.println(loginList.toString());
-
+                    System.out.println("agrego");
                 } else {
 
                     System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
 
                 }
-
+                
+                
+                
+            }else{
+                System.out.println("debe llenar todos los espacios");
             }
         } catch (Exception e) {
 
