@@ -127,7 +127,7 @@ public class FXMLMenuController implements Initializable {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
                 
-
+                
                     if (!loginList.contains(security) || loginList.isEmpty()) {//Si no contiene al user, agregarlo //
                         loginList.add(security);
                         System.out.println(loginList.toString());
