@@ -45,16 +45,18 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private PasswordField textPassword;
     
-    //Botones de login, exit y registrar
+    //Botones 
     @FXML
     private Button btnLogin;
     @FXML
     private Button btnExit;
+    @FXML
+    private Button btnClean;
 
     //**************************  MenuItemUser   **************************
     //GridPane de Reistrar User
     @FXML
-    private GridPane gridPaneRegister;
+    private GridPane gridUser;
     
     //ComboBox para definir si es administrador o estudiante
     @FXML
@@ -71,7 +73,7 @@ public class FXMLMenuController implements Initializable {
     private TextField txtFielPasword;
     
     //Menus Items de User
-        @FXML
+    @FXML
     private MenuItem menuUserAdd;
     @FXML
     private MenuItem menuUserDisplay;
@@ -80,14 +82,12 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private MenuItem menuUserModify;
     
-    //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
+    //Tabla de User
     @FXML
-    private TableView<?> tableDisplayUser;
+    private TableView<?> tableUser;
+    
     //**************************  fin MenuItemUser   **************************
-    @FXML
-    private Button btnClean;
 
-   
 
 
     @Override
@@ -104,7 +104,7 @@ public class FXMLMenuController implements Initializable {
     //************************** USER **************************
     @FXML
     private void menuUserAdd(ActionEvent event) {
-        this.gridPaneRegister.setVisible(true);
+        this.gridUser.setVisible(true);
         this.btnRegisterUser.setVisible(true);
     }
         @FXML
