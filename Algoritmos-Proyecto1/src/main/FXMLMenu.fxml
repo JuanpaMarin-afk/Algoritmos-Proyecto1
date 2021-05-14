@@ -52,7 +52,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="User">
                   <items>
-                    <MenuItem fx:id="menuUserAdd" mnemonicParsing="false" text="Add persona" />
+                    <MenuItem fx:id="menuUserAdd" mnemonicParsing="false" onAction="#menuUserAdd" text="Add User" />
                         <MenuItem fx:id="menuUserDisplay" mnemonicParsing="false" text="Display" />
                         <MenuItem fx:id="menuUserSearch" mnemonicParsing="false" text="Search" />
                         <MenuItem fx:id="menuUserRemove" mnemonicParsing="false" text="Remove" />

@@ -27,25 +27,24 @@ import javafx.scene.layout.GridPane;
 public class FXMLMenuController implements Initializable {
 
     //Atributos Aqui poner los atributos de la clase, tambien todo lo de la interfaz :D, porfa poner comentarios para ver cuales son cada una de ellas
-    
     CircularDoublyLinkedList loginList = new CircularDoublyLinkedList(); //Lista para el modulo de seguridad
-    
+
     DoublyLinkedList carreerList = new DoublyLinkedList();//Lista para el modulo de las carreras
-    
+
     SinglyLinkedList studentList = new SinglyLinkedList();//Lista para el modulo de estudiantes
-    
+
     CircularDoublyLinkedList courseList = new CircularDoublyLinkedList();//Lista para el modulo de cursos
-    
+
     SinglyLinkedList sheduleList = new SinglyLinkedList();//Lista para el modulo de horarios
-    
+
     CircularDoublyLinkedList enrollmentList = new CircularDoublyLinkedList();//Lista para el modulo de matricula
-    
+
     //TextFields para poder iniciar sesion
     @FXML
     private TextField textUser;
     @FXML
     private PasswordField textPassword;
-    
+
     //GridPane de Reistrar User
     @FXML
     private GridPane gridPaneRegister;
@@ -54,14 +53,14 @@ public class FXMLMenuController implements Initializable {
     private ComboBox comboBoxRegister;
     @FXML
     private Button btnRegister;
-    
+
     //TextFiel de registrar nombre y contraseña
     @FXML
     private TextField txtFielName;
     @FXML
     private TextField txtFielPasword;
     //***********************************************
-    
+
     //Labels de los componentes de registrar
     @FXML
     private Label labelNameRegister;
@@ -69,17 +68,17 @@ public class FXMLMenuController implements Initializable {
     private Label labelProfileRegister;
     @FXML
     private Label labelPasswordRegister;
-    
+
     //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
     @FXML
     private TableView<?> tableDisplayUser;
-    
+
     //Botones de login, exit y registrar
     @FXML
     private Button btnLogin;
     @FXML
     private Button btnExit;
-    
+
     //MenuItem User
     @FXML
     private MenuItem menuUserAdd;
@@ -89,29 +88,30 @@ public class FXMLMenuController implements Initializable {
     private MenuItem menuUserSearch;
     @FXML
     private MenuItem menuUserRemove;
-    
-    
+
     @FXML
     private MenuItem menuCareerRemove;
     @FXML
     private MenuItem menuStudentRemove;
-    
-    
 
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
-        
+
         //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
-       //funcion del comboBox
-        ObservableList<String> list = FXCollections.observableArrayList("Student","Administrator");
+        //funcion del comboBox
+        ObservableList<String> list = FXCollections.observableArrayList("Student", "Administrator");
         //Le agrega los dos items al combo antes definidos
         comboBoxRegister.setItems(list);
-    }    
+    }
 
     //Metodo que le da acción al comboBox
     @FXML
     private void selectComboBoxRegister(ActionEvent event) {
+    }
+
+    @FXML
+    private void menuUserAdd(ActionEvent event) {
+        System.out.println("Hola");
     }
 
     @FXML
@@ -125,7 +125,5 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnRegister(ActionEvent event) {
     }
-    
 
-    
 }//end class
