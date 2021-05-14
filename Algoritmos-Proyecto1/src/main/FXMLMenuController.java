@@ -46,7 +46,7 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private PasswordField textPassword;
     
-    //GridPane de registrar User
+    //GridPane de Reistrar User
     @FXML
     private GridPane gridPaneRegister;
     //ComboBox para definir si es usuario o estudiante
@@ -60,6 +60,7 @@ public class FXMLMenuController implements Initializable {
     private TextField txtFielName;
     @FXML
     private TextField txtFielPasword;
+    //***********************************************
     
     //Labels de los componentes de registrar
     @FXML
