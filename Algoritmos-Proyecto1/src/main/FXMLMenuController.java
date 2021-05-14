@@ -129,7 +129,7 @@ public class FXMLMenuController implements Initializable {
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
-                    System.out.println(loginList.toString());
+                    System.out.println(loginList.toString() + "primer valor");
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
