@@ -103,7 +103,7 @@ public class FXMLMenuController implements Initializable {
         
         //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
        //funcion del comboBox
-        ObservableList<String> list = FXCollections.observableArrayList("Student","User");
+        ObservableList<String> list = FXCollections.observableArrayList("Student","Administrator");
         //Le agrega los dos items al combo antes definidos
         comboBoxRegister.setItems(list);
     }    
