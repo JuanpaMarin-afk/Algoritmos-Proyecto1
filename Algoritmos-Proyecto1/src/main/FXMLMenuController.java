@@ -5,10 +5,16 @@ import domain.DoublyLinkedList;
 import domain.SinglyLinkedList;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -37,6 +43,20 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private PasswordField textPassword;
     
+    //GridPane de registrar
+    @FXML
+    private GridPane gridPaneRegister;
+    //Labels incluidos en el gridPaneRegister
+    @FXML
+    private Label RegisterName;
+    @FXML
+    private Label ProfileRegister;
+    @FXML
+    private Label passwordRegister;
+    //ComboBox para definir si es usuario o estudiante
+    @FXML
+    private ComboBox comboBoxRegister;
+    
     
     
     
@@ -46,8 +66,16 @@ public class FXMLMenuController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
-       
+       //funcion del comboBox
+        ObservableList<String> list = FXCollections.observableArrayList("Student","User");
+        //Le agrega los dos items al combo antes definidos
+        comboBoxRegister.setItems(list);
     }    
+
+    //Metodo que le da acción al comboBox
+    @FXML
+    private void selectComboBoxRegister(ActionEvent event) {
+    }
     
     
     
