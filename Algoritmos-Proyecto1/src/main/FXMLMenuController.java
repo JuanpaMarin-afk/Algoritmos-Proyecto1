@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
@@ -156,7 +157,12 @@ public class FXMLMenuController implements Initializable {
                 }
 
             } else {
-                System.out.println("debe llenar todos los espacios");
+                Alert alert = new Alert(AlertType.WARNING);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("You need to fill all the empty field.");
+
+                alert.showAndWait();
             }
         } catch (Exception e) {
 
@@ -182,11 +188,7 @@ public class FXMLMenuController implements Initializable {
         this.comboBoxUser.setValue("Administrator");
         this.txtFielName.setText("");
         this.textPassword.setText("");
-        
-        
-        
-        
-        
+
     }
 
 }//end class
