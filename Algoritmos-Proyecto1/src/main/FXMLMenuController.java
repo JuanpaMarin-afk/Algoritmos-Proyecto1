@@ -15,7 +15,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -108,6 +107,18 @@ public class FXMLMenuController implements Initializable {
     //Metodo que le da acción al comboBox
     @FXML
     private void selectComboBoxRegister(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnLogin(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnExit(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnRegister(ActionEvent event) {
     }
     
 
