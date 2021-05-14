@@ -52,20 +52,20 @@
               <menus>
                 <Menu mnemonicParsing="false" text="User">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Add persona" />
-                        <MenuItem mnemonicParsing="false" text="Display" />
-                        <MenuItem mnemonicParsing="false" text="Search" />
-                        <MenuItem mnemonicParsing="false" text="Remove" />
+                    <MenuItem fx:id="menuUserAdd" mnemonicParsing="false" text="Add persona" />
+                        <MenuItem fx:id="menuUserDisplay" mnemonicParsing="false" text="Display" />
+                        <MenuItem fx:id="menuUserSearch" mnemonicParsing="false" text="Search" />
+                        <MenuItem fx:id="menuUserRemove" mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Careers">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Remove" />
+                    <MenuItem fx:id="menuCareerRemove" mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Student">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Remove" />
+                    <MenuItem fx:id="menuStudentRemove" mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Course">

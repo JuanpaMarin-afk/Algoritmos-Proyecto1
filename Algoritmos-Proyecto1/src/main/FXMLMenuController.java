@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,12 +78,22 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private Button btnRegister;
     
+    //MenuItems 
+    @FXML
+    private MenuItem menuUserAdd;
+    @FXML
+    private MenuItem menuUserDisplay;
+    @FXML
+    private MenuItem menuUserSearch;
+    @FXML
+    private MenuItem menuUserRemove;
+    @FXML
+    private MenuItem menuCareerRemove;
+    @FXML
+    private MenuItem menuStudentRemove;
     
     
-    
-    
-    
-    
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -97,6 +108,6 @@ public class FXMLMenuController implements Initializable {
     private void selectComboBoxRegister(ActionEvent event) {
     }
     
-    
+
     
 }//end class
