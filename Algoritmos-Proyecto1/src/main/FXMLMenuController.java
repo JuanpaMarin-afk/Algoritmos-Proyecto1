@@ -68,10 +68,14 @@ public class FXMLMenuController implements Initializable {
     //Tabla que muestra los usuarios y sus perfiles dentro de la universidad
     @FXML
     private TableView<?> tableDisplayUser;
+    
+    //Botones de login, exit y registrar
     @FXML
     private Button btnLogin;
     @FXML
     private Button btnExit;
+    @FXML
+    private Button btnRegister;
     
     
     
