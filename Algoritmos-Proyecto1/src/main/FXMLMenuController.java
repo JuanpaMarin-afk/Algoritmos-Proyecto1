@@ -148,7 +148,6 @@ public class FXMLMenuController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setHeaderText("");
                 alert.setContentText("Do you want to add another User?");
-
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
                     menuUserAdd(event);

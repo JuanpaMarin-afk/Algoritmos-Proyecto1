@@ -55,9 +55,19 @@ public class Security {
         this.password = password;
     }
 
+    public String[] getDataName() {
+        String[] dataName = {"Type", "Name", "Password"};
+        return dataName;
+    }
+
+    public String[] getData() {
+        String[] data = {type, user, password};
+        return data;
+    }
+
     @Override
     public String toString() {
         return "Security{" + "type=" + type + ", user=" + user + ", password=" + password + '}';
     }
-    
+
 }//end class
