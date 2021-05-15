@@ -97,7 +97,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #283747;" BorderPane.alignment="CENTER">
          <children>
-            <GridPane fx:id="gridUser" layoutX="102.0" layoutY="92.0" prefHeight="401.0" prefWidth="726.0">
+            <GridPane fx:id="gridUser" layoutX="102.0" layoutY="92.0" prefHeight="401.0" prefWidth="726.0" visible="false">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="227.0" />
                 <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="406.0" />

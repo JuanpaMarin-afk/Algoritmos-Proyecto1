@@ -116,7 +116,6 @@ public class FXMLMenuController implements Initializable {
 
     @Override 
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
-
         //XML PARA USER
         xmlUser = new FileXML();
         if (!xmlUser.exist("UserSystem.xml")) {
@@ -125,6 +124,9 @@ public class FXMLMenuController implements Initializable {
             loginList = xmlUser.readXMLUser(userAddress, "User");
         }
 
+        
+        
+        
     }
 
     //************************** USER **************************
