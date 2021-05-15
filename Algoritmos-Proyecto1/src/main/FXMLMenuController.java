@@ -108,7 +108,7 @@ public class FXMLMenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
-        this.menuBar.setDisable(false);
+        
         
         //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
         //funcion del comboBox
