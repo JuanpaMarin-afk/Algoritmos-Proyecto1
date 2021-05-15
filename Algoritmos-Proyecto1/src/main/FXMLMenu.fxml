@@ -50,7 +50,7 @@
    <top>
       <AnchorPane prefHeight="27.0" prefWidth="1200.0" style="-fx-background-color: #616a6b;" BorderPane.alignment="CENTER">
          <children>
-            <MenuBar layoutX="277.0" layoutY="-1.0" prefHeight="33.0" prefWidth="922.0" style="-fx-background-color: #bfc9ca;">
+            <MenuBar fx:id="menuBar" layoutX="277.0" layoutY="-1.0" prefHeight="33.0" prefWidth="922.0" style="-fx-background-color: #bfc9ca;">
               <menus>
                 <Menu mnemonicParsing="false" text="User">
                   <items>
@@ -85,7 +85,7 @@
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Reports">
+                  <Menu fx:id="menuReports" mnemonicParsing="false" text="Reports">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>

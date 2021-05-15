@@ -19,6 +19,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
@@ -98,10 +100,16 @@ public class FXMLMenuController implements Initializable {
     String userAddress = "UserSystem.xml";
     
     Security user = new Security();//User que se usa para el inicio de sesion
+    @FXML
+    private MenuBar menuBar;
+    @FXML
+    private Menu menuReports;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
+        this.menuBar.setDisable(false);
+        
         //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
         //funcion del comboBox
         ObservableList<String> list = FXCollections.observableArrayList("Student", "Administrator");
@@ -207,8 +215,8 @@ public class FXMLMenuController implements Initializable {
     private void btnLogin(ActionEvent event) {//Inicia Sesion
         try {
             
-            
-            
+            System.out.println(this.textUser.getText());
+            System.out.println(this.textPassword.getText());
         } catch (Exception e) {
             
             
