@@ -244,7 +244,6 @@ public class FXMLMenuController implements Initializable {
                     this.btnLogin.setVisible(false);
                 }
             }
-
         } catch (Exception e) {
             System.out.println("error" + e);
         }
