@@ -142,6 +142,7 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnRegisterUser(ActionEvent event) {
+        btnClean(event);
         try {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("") && !this.comboBoxUser.getValue().toString().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
