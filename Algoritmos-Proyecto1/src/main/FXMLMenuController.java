@@ -112,7 +112,6 @@ public class FXMLMenuController implements Initializable {
             xmlUser.createXML("Users", userAddress, "UserSystem");
         }else{//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
             loginList = xmlUser.readXMLUser(userAddress, "User");
-            
         }
 
     }
