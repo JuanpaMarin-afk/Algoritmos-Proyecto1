@@ -110,7 +110,7 @@ public class FXMLMenuController implements Initializable {
         xmlUser = new FileXML();
         if (!xmlUser.exist("UserSystem.xml")) {
             xmlUser.createXML("Users", userAddress, "UserSystem");
-        }else{//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
+        } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
             loginList = xmlUser.readXMLUser(userAddress, "User");
         }
 
@@ -157,7 +157,12 @@ public class FXMLMenuController implements Initializable {
                     System.out.println("agrego");
                 } else {
 
-                    System.out.println("Lista ya ocntiene un usuario con el mismo nombre");
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("There is already a user in the system");
+
+                    alert.showAndWait();
 
                 }
 
@@ -182,9 +187,8 @@ public class FXMLMenuController implements Initializable {
 
         }
     }
-    
-    //************************** fin USER **************************
 
+    //************************** fin USER **************************
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
 
