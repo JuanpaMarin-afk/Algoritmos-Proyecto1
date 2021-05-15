@@ -24,6 +24,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javax.crypto.Cipher;
 
 /**
  * FXML Controller class
@@ -198,7 +199,7 @@ public class FXMLMenuController implements Initializable {
 
         }
     }
-
+    
     //************************** fin USER **************************
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
