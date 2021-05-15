@@ -95,7 +95,7 @@ public class FXMLMenuController implements Initializable {
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
     
-    Security user = new Security();//User que se usa para el inicio de sesion
+    //Security user = new Security();//User que se usa para el inicio de sesion
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -203,15 +203,15 @@ public class FXMLMenuController implements Initializable {
     //************************** fin USER **************************
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
-        try {
-            
-            System.out.println(this.textUser.getText());
-            System.out.println(this.textPassword.getText());
-        } catch (Exception e) {
-            
-            
-            
-        }
+//        try {
+//            
+//            System.out.println(this.textUser.getText());
+//            System.out.println(this.textPassword.getText());
+//        } catch (Exception e) {
+//            
+//            
+//            
+//        }
     }
     
     @FXML
