@@ -92,7 +92,6 @@ public class FXMLMenuController implements Initializable {
     private TableView<?> tableUser;
 
     //**************************  fin MenuItemUser   **************************
-    
     //**************************  XML Users   **************************
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
@@ -100,7 +99,7 @@ public class FXMLMenuController implements Initializable {
     //**************************  XML Careers   **************************
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
-    
+
     //**************************  FIN XML Users   **************************
     @FXML
     private MenuBar menuBar;
@@ -118,14 +117,23 @@ public class FXMLMenuController implements Initializable {
     private Menu menuItemShedule;
     @FXML
     private Menu menuItemInscription;
-    
-    
+
+    //**************************  MenuItemCareer   **************************
     @FXML
     private MenuItem addCareer;
     @FXML
     private MenuItem addStudent;
+    @FXML
+    private GridPane gridCareer;
+    @FXML
+    private TextField txtFielId;
+    @FXML
+    private TextField txtFielDescription;
+    @FXML
+    private Button btnRegisterCareer;
+    //**************************  fin MenuItemCareer   **************************
 
-    @Override 
+    @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
         //XML PARA USER
         xmlUser = new FileXML();
@@ -142,8 +150,6 @@ public class FXMLMenuController implements Initializable {
 //        } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
 //            //carreerList = xmlCareer.readXMLUser(careerAddress, "Career");
 //        }
-        
-        
     }
 
     //************************** USER **************************
@@ -165,7 +171,6 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void menuUserModify(ActionEvent event) {
     }
-
 
     @FXML
     private void btnRegisterUser(ActionEvent event) {
@@ -268,7 +273,7 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
         btnClean(event);
-        
+
     }
 
     @FXML
@@ -280,30 +285,27 @@ public class FXMLMenuController implements Initializable {
         this.txtFielPasword.setText("");
 
         //Career
-         
-        
     }
 
     //************************** CAREER **************************
-    
     @FXML
     private void addCareer(ActionEvent event) {
-        
-        
-        
+        btnClean(event);
+        gridCareer.setVisible(true);
+        btnRegisterCareer.setVisible(true);
     }
 
+    @FXML
+    private void btnRegisterCareer(ActionEvent event) {
+        System.out.println("Hola");
+    }
     //************************** FIN CAREER **************************
 
     //************************** STUDENT **************************
-    
     @FXML
     private void addStudent(ActionEvent event) {
-        
-        
-        
+
     }
-    
+
     //************************** FIN STUDENT **************************
-    
 }//end class
