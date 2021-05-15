@@ -109,8 +109,8 @@ public class FXMLMenuController implements Initializable {
         //XML PARA USER
         xmlUser = new FileXML();
 
-        if (!xmlUser.exist(userAddress + "UserSystem.xml")) {
-            xmlUser.createXML("Users", userAddress, "UserSystem");
+        if (!xmlUser.exist("UserSystem.xml")) {
+            //xmlUser.createXML("Users", userAddress, "UserSystem");
             System.out.println("se crea");
         }else{
             System.out.println("no se crea");
