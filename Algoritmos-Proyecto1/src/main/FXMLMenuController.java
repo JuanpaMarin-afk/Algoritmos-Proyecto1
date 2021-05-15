@@ -297,8 +297,11 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnRegisterCareer(ActionEvent event) {
-        System.out.println("Hola");
+        
+        
+        
     }
+    
     //************************** FIN CAREER **************************
 
     //************************** STUDENT **************************
