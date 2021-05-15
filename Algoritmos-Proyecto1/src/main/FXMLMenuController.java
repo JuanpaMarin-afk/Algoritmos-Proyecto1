@@ -135,7 +135,13 @@ public class FXMLMenuController implements Initializable {
             loginList = xmlUser.readXMLUser(userAddress, "User");
         }
 
-        
+        //XML PARA CAREER
+//        xmlCareer = new FileXML();
+//        if (!xmlCareer.exist("CareerSystem.xml")) {
+//            xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+//        } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
+//            //carreerList = xmlCareer.readXMLUser(careerAddress, "Career");
+//        }
         
         
     }
@@ -273,6 +279,9 @@ public class FXMLMenuController implements Initializable {
         this.txtFielName.setText("");
         this.txtFielPasword.setText("");
 
+        //Career
+         
+        
     }
 
     //************************** CAREER **************************
