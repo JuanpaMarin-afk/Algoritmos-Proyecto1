@@ -142,6 +142,7 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnRegisterUser(ActionEvent event) {
+        boolean condition = false;
         try {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("") && !this.comboBoxUser.getValue().toString().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
@@ -154,6 +155,7 @@ public class FXMLMenuController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("User successfully registered");
                     alert.showAndWait();
+                    condition = true;
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
@@ -165,11 +167,13 @@ public class FXMLMenuController implements Initializable {
                     alert.showAndWait();
                 } else {
 
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Information");
-                    alert.setHeaderText(null);
-                    alert.setContentText("There is already a user in the system");
-                    alert.showAndWait();
+                    if (condition == false) {
+                        Alert alert = new Alert(AlertType.INFORMATION);
+                        alert.setTitle("Information");
+                        alert.setHeaderText(null);
+                        alert.setContentText("There is already a user in the system");
+                        alert.showAndWait();
+                    }
 
                 }
 
