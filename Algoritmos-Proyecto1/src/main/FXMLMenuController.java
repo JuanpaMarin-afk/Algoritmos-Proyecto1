@@ -18,6 +18,8 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
@@ -44,9 +46,8 @@ public class FXMLMenuController implements Initializable {
 
     CircularDoublyLinkedList enrollmentList = new CircularDoublyLinkedList();//Lista para el modulo de matricula
 
-    Security name = new Security();//User que se usa para el inicio de sesion
-    
-    
+    Security user = new Security();//User que se usa para el inicio de sesion
+
     //TextFields para poder iniciar sesion
     @FXML
     private TextField textUser;
@@ -97,7 +98,11 @@ public class FXMLMenuController implements Initializable {
     //**************************  fin MenuItemUser   **************************
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
-    
+    @FXML
+    private MenuBar menuBar;
+    @FXML
+    private Menu menuItemReport;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
@@ -115,7 +120,7 @@ public class FXMLMenuController implements Initializable {
         } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
             loginList = xmlUser.readXMLUser(userAddress, "User");
         }
-        
+
     }
 
     //************************** USER **************************
@@ -125,30 +130,30 @@ public class FXMLMenuController implements Initializable {
         this.gridUser.setVisible(true);
         this.btnRegisterUser.setVisible(true);
     }
-    
+
     @FXML
     private void menuUserDisplay(ActionEvent event) {
     }
-    
+
     @FXML
     private void menuUserRemove(ActionEvent event) {
     }
-    
+
     @FXML
     private void menuUserModify(ActionEvent event) {
     }
-    
+
     @FXML
     private void comboBoxUser(ActionEvent event) {
     }
-    
+
     @FXML
     private void btnRegisterUser(ActionEvent event) {
         boolean condition = false;
         try {
             if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("") && !this.comboBoxUser.getValue().toString().equals("")) {
                 Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
-                
+
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
                     xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
@@ -168,7 +173,7 @@ public class FXMLMenuController implements Initializable {
                     alert.setContentText("User successfully registered");
                     alert.showAndWait();
                 } else {
-                    
+
                     if (condition == false) {
                         Alert alert = new Alert(AlertType.INFORMATION);
                         alert.setTitle("Information");
@@ -176,9 +181,9 @@ public class FXMLMenuController implements Initializable {
                         alert.setContentText("There is already a user in the system");
                         alert.showAndWait();
                     }
-                    
+
                 }
-                
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setHeaderText("");
                 alert.setContentText("Do you want to add another User?");
@@ -188,7 +193,7 @@ public class FXMLMenuController implements Initializable {
                 } else {
                     btnClean(event);
                 }
-                
+
             } else {
                 Alert alert = new Alert(AlertType.WARNING);
                 alert.setTitle("Information");
@@ -197,29 +202,35 @@ public class FXMLMenuController implements Initializable {
                 alert.showAndWait();
             }
         } catch (Exception e) {
-            
+
         }
     }
 
     //************************** fin USER **************************
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
-//        try {
-//            
-//            System.out.println(this.textUser.getText());
-//            System.out.println(this.textPassword.getText());
-//        } catch (Exception e) {
-//            
-//            
-//            
-//        }
+        try {
+
+            user.setUser(this.textUser.getText());
+            user.setPassword(this.textPassword.getText());
+            user = xmlUser.readXMLLogIn(userAddress, "User", user);
+
+            if (!user.getType().equals("")) {
+                this.menuBar.setDisable(true);
+            }
+            
+            
+
+        } catch (Exception e) {
+
+        }
     }
-    
+
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
 
     }
-    
+
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
         //User
@@ -228,7 +239,7 @@ public class FXMLMenuController implements Initializable {
         this.comboBoxUser.setValue("Administrator");
         this.txtFielName.setText("");
         this.txtFielPasword.setText("");
-        
+
     }
-    
+
 }//end class
