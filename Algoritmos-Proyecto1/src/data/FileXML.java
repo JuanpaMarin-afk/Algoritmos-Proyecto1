@@ -143,7 +143,7 @@ public class FileXML {
                     name = eElement.getElementsByTagName("Name").item(0).getTextContent();
                     password = eElement.getElementsByTagName("Password").item(0).getTextContent();
 
-                    Security security = new Security(type,name,password);
+                    Security security = new Security(type, name, password);
                     loginList.add(security);
                 }
             }
