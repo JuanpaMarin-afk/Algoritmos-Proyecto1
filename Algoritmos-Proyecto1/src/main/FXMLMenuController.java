@@ -112,6 +112,7 @@ public class FXMLMenuController implements Initializable {
             xmlUser.createXML("Users", userAddress, "UserSystem");
             System.out.println("se crea");
         }else{
+            loginList = xmlUser.readXMLUser(userAddress, "User");
             System.out.println("no se crea");
         }
 

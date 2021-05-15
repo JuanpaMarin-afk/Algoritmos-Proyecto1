@@ -119,7 +119,7 @@ public class FileXML {
         }
     }
 
-    public CircularDoublyLinkedList readXMLBrand(String address, String elementType) {
+    public CircularDoublyLinkedList readXMLUser(String address, String elementType) {
         CircularDoublyLinkedList loginList = new CircularDoublyLinkedList();
         String type = "";
         String name = "";
