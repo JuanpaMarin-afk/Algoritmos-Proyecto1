@@ -30,6 +30,10 @@ public class Security {
         this.password = security.password;
     }
 
+    public Security() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     //Set Y Get
     public String getType() {
         return type;

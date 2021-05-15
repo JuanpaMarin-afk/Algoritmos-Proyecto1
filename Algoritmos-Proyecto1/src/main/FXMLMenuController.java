@@ -97,6 +97,8 @@ public class FXMLMenuController implements Initializable {
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
 
+    Security user = new Security();//User que se usa para el inicio de sesion
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
 
