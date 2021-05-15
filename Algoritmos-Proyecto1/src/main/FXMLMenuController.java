@@ -96,17 +96,27 @@ public class FXMLMenuController implements Initializable {
     private TableView<?> tableUser;
 
     //**************************  fin MenuItemUser   **************************
-    
     //**************************  XML Users   **************************
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
-    
+
     //**************************  FIN XML Users   **************************
-    
     @FXML
     private MenuBar menuBar;
     @FXML
     private Menu menuItemReport;
+    @FXML
+    private Menu menuItemUser;
+    @FXML
+    private Menu menuItemCareers;
+    @FXML
+    private Menu menuItemStudent;
+    @FXML
+    private Menu menuItemCourse;
+    @FXML
+    private Menu menuItemShedule;
+    @FXML
+    private Menu menuItemInscription;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -117,7 +127,7 @@ public class FXMLMenuController implements Initializable {
         //Le agrega los dos items al combo antes definidos
         comboBoxUser.setValue("Administrator");
         comboBoxUser.setItems(list);
-        
+
         //XML PARA USER
         xmlUser = new FileXML();
         if (!xmlUser.exist("UserSystem.xml")) {
@@ -219,20 +229,32 @@ public class FXMLMenuController implements Initializable {
             user.setPassword(this.textPassword.getText());
             user = xmlUser.readXMLLogIn(userAddress, "User", user);
             System.out.println(user.toString());
-            
+
             if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
                 this.menuBar.setDisable(false);
                 this.btnLogin.setDisable(false);
             }
             if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
-                
-                
-                
+                blockMenuItems();
+                this.btnLogin.setDisable(false);
+
             }
-            
+
         } catch (Exception e) {
 
         }
+    }
+
+    public void blockMenuItems() {
+        this.menuBar.setDisable(false);
+        this.menuItemUser.setDisable(true);
+        this.menuItemCareers.setDisable(true);
+        this.menuItemStudent.setDisable(true);
+        this.menuItemCourse.setDisable(true);
+        this.menuItemShedule.setDisable(true);
+        this.menuItemInscription.setDisable(true);
+        this.menuItemReport.setDisable(false);
+        
     }
 
     @FXML

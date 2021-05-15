@@ -52,7 +52,7 @@
          <children>
             <MenuBar fx:id="menuBar" disable="true" layoutX="277.0" layoutY="-1.0" prefHeight="33.0" prefWidth="922.0" style="-fx-background-color: #bfc9ca;">
               <menus>
-                <Menu mnemonicParsing="false" text="User">
+                <Menu fx:id="menuItemUser" mnemonicParsing="false" text="User">
                   <items>
                     <MenuItem fx:id="menuUserAdd" mnemonicParsing="false" onAction="#menuUserAdd" text="Add User" />
                         <MenuItem fx:id="menuUserDisplay" mnemonicParsing="false" onAction="#menuUserDisplay" text="Display" />
@@ -60,27 +60,27 @@
                         <MenuItem fx:id="menuUserRemove" mnemonicParsing="false" onAction="#menuUserRemove" text="Remove" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Careers">
+                <Menu fx:id="menuItemCareers" mnemonicParsing="false" text="Careers">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Student">
+                <Menu fx:id="menuItemStudent" mnemonicParsing="false" text="Student">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Remove" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Course">
+                  <Menu fx:id="menuItemCourse" mnemonicParsing="false" text="Course">
                      <items>
                         <MenuItem mnemonicParsing="false" text="Remove" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Horario">
+                  <Menu fx:id="menuItemShedule" mnemonicParsing="false" text="Horario">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Inscription">
+                  <Menu fx:id="menuItemInscription" mnemonicParsing="false" text="Inscription">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
                      </items>
