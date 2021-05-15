@@ -228,18 +228,21 @@ public class FXMLMenuController implements Initializable {
             user.setUser(this.textUser.getText());
             user.setPassword(this.textPassword.getText());
             user = xmlUser.readXMLLogIn(userAddress, "User", user);
-            System.out.println(user.toString());
 
             if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
                 this.menuBar.setDisable(false);
                 this.btnLogin.setDisable(false);
             }
             if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
-                blockMenuItems();
+                blockMenuItems();//Bloquea los demas menu items
                 this.btnLogin.setDisable(false);
 
             }
 
+            if (user.getType() == null) {
+                System.out.println("no hay registro");
+            }
+            
         } catch (Exception e) {
 
         }
@@ -254,7 +257,6 @@ public class FXMLMenuController implements Initializable {
         this.menuItemShedule.setDisable(true);
         this.menuItemInscription.setDisable(true);
         this.menuItemReport.setDisable(false);
-        
     }
 
     @FXML
