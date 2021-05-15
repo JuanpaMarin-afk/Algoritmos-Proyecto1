@@ -44,6 +44,9 @@ public class FXMLMenuController implements Initializable {
 
     CircularDoublyLinkedList enrollmentList = new CircularDoublyLinkedList();//Lista para el modulo de matricula
 
+    Security name = new Security();//User que se usa para el inicio de sesion
+    
+    
     //TextFields para poder iniciar sesion
     @FXML
     private TextField textUser;
@@ -94,8 +97,6 @@ public class FXMLMenuController implements Initializable {
     //**************************  fin MenuItemUser   **************************
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
-    
-    //Security user = new Security();//User que se usa para el inicio de sesion
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
