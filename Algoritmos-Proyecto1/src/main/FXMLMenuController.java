@@ -18,15 +18,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javax.crypto.Cipher;
 
 /**
  * FXML Controller class
@@ -100,10 +97,6 @@ public class FXMLMenuController implements Initializable {
     String userAddress = "UserSystem.xml";
     
     Security user = new Security();//User que se usa para el inicio de sesion
-    @FXML
-    private MenuBar menuBar;
-    @FXML
-    private Menu menuReports;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
