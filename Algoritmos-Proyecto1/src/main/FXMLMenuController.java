@@ -218,7 +218,10 @@ public class FXMLMenuController implements Initializable {
         this.comboBoxUser.setValue("Administrator");
         this.txtFielName.setText("");
         this.txtFielPasword.setText("");
-
+        
+        
+        
+        
     }
 
 }//end class
