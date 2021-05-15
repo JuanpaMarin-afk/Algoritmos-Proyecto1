@@ -149,7 +149,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <GridPane fx:id="gridCareer" layoutX="112.0" layoutY="102.0" prefHeight="401.0" prefWidth="726.0">
+            <GridPane fx:id="gridCareer" layoutX="112.0" layoutY="102.0" prefHeight="401.0" prefWidth="726.0" visible="false">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="227.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.0" minWidth="10.0" prefWidth="406.0" />
