@@ -30,7 +30,7 @@ public class FileXML {
     //Constructor
     public FileXML() {
     }
-
+    
     public Boolean exist(String address) {
         File file = new File(address);
         if (file.exists()) {
@@ -38,87 +38,87 @@ public class FileXML {
         }
         return false;
     }
-
+    
     public void createXML(String objectName, String address, String fileName) {//Crea el archivo xml
 
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
+            
             Document doc = dBuilder.newDocument();
-
+            
             Element rootElement = doc.createElement(objectName);
             doc.appendChild(rootElement);
-
+            
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-
+            
             DOMSource source = new DOMSource(doc);
-
+            
             StreamResult result = new StreamResult(new File(fileName + ".xml"));
             transformer.transform(source, result);
-
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
+    
     public void writeXML(String FileName, String elementType, String[] dataName, String[] data) throws TransformerException {//Escribe en el xml
         try {
-
+            
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
-
+            
             Document doc = db.parse(new File(FileName));
             doc.getDocumentElement().normalize();
-
+            
             Element rootElement = doc.getDocumentElement();
-
+            
             Element ele = doc.createElement(elementType);
             rootElement.appendChild(ele);
-
+            
             Attr attr = doc.createAttribute(dataName[0]);
             attr.setValue(data[0]);
             ele.setAttributeNode(attr);
-
+            
             for (int i = 1; i < data.length; i++) {
-
+                
                 Element dato = doc.createElement(dataName[i]);
-
+                
                 dato.appendChild(doc.createTextNode(data[i]));
-
+                
                 ele.appendChild(dato);
             }
-
+            
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
-
+            
             DOMSource source = new DOMSource(doc);
-
+            
             StreamResult result = new StreamResult(new File(FileName));
             transformer.transform(source, result);
-
+            
             System.out.println("Registro Guardado");
-
+            
         } catch (ParserConfigurationException pce) {
-
+            
             pce.printStackTrace();
-
+            
         } catch (SAXException e) {
-
+            
             e.printStackTrace();
         } catch (IOException e) {
-
+            
             e.printStackTrace();
         } catch (TransformerConfigurationException e) {
-
+            
             e.printStackTrace();
         } catch (TransformerException e) {
-
+            
             e.printStackTrace();
         }
     }
-
+    
     public CircularDoublyLinkedList readXMLUser(String address, String elementType) {
         CircularDoublyLinkedList loginList = new CircularDoublyLinkedList();
         String type = "";
@@ -130,28 +130,31 @@ public class FileXML {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(inputFile);
             doc.getDocumentElement().normalize();
-
+            
             NodeList nList = doc.getElementsByTagName(elementType);
-
+            
             for (int indice = 0; indice < nList.getLength(); indice++) {
                 Node nNode = nList.item(indice);
-
+                
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element eElement = (Element) nNode;
-
-                    type = eElement.getAttribute("Type");
-                    name = eElement.getElementsByTagName("Name").item(0).getTextContent();
-                    password = eElement.getElementsByTagName("Password").item(0).getTextContent();
-
-                    Security security = new Security(type, name, password);
-                    loginList.add(security);
+                    
+                    
+                        type = eElement.getAttribute("Type");
+                        name = eElement.getElementsByTagName("Name").item(0).getTextContent();
+                        password = eElement.getElementsByTagName("Password").item(0).getTextContent();
+                        
+                        Security security = new Security(type, name, password);
+                        loginList.add(security);
+                    
+                    
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
         return loginList;
     }
-
+    
 }//end class
