@@ -97,6 +97,10 @@ public class FXMLMenuController implements Initializable {
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
 
+    //**************************  XML Careers   **************************
+    FileXML xmlCareer;
+    String careerAddress = "CareerSystem.xml";
+    
     //**************************  FIN XML Users   **************************
     @FXML
     private MenuBar menuBar;
@@ -114,6 +118,8 @@ public class FXMLMenuController implements Initializable {
     private Menu menuItemShedule;
     @FXML
     private Menu menuItemInscription;
+    
+    
     @FXML
     private MenuItem addCareer;
 
