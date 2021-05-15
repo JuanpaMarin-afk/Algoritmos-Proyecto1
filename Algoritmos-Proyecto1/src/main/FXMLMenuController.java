@@ -113,6 +113,8 @@ public class FXMLMenuController implements Initializable {
     private Menu menuItemShedule;
     @FXML
     private Menu menuItemInscription;
+    @FXML
+    private MenuItem addCareer;
 
     @Override 
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -264,4 +266,13 @@ public class FXMLMenuController implements Initializable {
 
     }
 
+     //************************** CAREER **************************
+    
+    @FXML
+    private void addCareer(ActionEvent event) {
+        
+    }
+
+     //************************** FIN CAREER **************************
+    
 }//end class
