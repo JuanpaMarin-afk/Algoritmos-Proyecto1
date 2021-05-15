@@ -291,6 +291,8 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void addStudent(ActionEvent event) {
         
+        
+        
     }
     
     //************************** FIN STUDENT **************************
