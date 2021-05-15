@@ -60,6 +60,7 @@ public class Security {
         this.password = password;
     }
 
+    //XML
     public String[] getDataName() {
         String[] dataName = {"Type", "Name", "Password"};
         return dataName;
