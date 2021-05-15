@@ -149,12 +149,20 @@ public class FXMLMenuController implements Initializable {
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
                     xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
-                    System.out.println("agrego");
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("User successfully registered");
+                    alert.showAndWait();
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
                     xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
-                    System.out.println("agrego");
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("User successfully registered");
+                    alert.showAndWait();
                 } else {
 
                     Alert alert = new Alert(AlertType.INFORMATION);
@@ -162,6 +170,7 @@ public class FXMLMenuController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("There is already a user in the system");
                     alert.showAndWait();
+
                 }
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
