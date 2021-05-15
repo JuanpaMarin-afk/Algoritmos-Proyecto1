@@ -94,7 +94,7 @@ public class FXMLMenuController implements Initializable {
 
     //**************************  fin MenuItemUser   **************************
     FileXML xmlUser;
-    
+    String userAddress = "C:/Users/juanp/OneDrive/Documentos/NetBeansProjects/Algoritmos-Proyecto1/Algoritmos-Proyecto1/";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -107,11 +107,10 @@ public class FXMLMenuController implements Initializable {
         comboBoxUser.setItems(list);
 
         //XML PARA USER
-        String address = "C:/Users/juanp/OneDrive/Documentos/NetBeansProjects/Algoritmos-Proyecto1/Algoritmos-Proyecto1/";
         xmlUser = new FileXML();
 
-        if (!xmlUser.exist(address + "UserSystem.xml")) {
-            xmlUser.createXML("Users", address, "UserSystem");
+        if (!xmlUser.exist(userAddress + "UserSystem.xml")) {
+            xmlUser.createXML("Users", userAddress, "UserSystem");
             System.out.println("se crea");
         }else{
             System.out.println("no se crea");
@@ -150,11 +149,12 @@ public class FXMLMenuController implements Initializable {
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
-                    
+                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
                     System.out.println("agrego");
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
+                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
                     System.out.println("agrego");
                 } else {
 
