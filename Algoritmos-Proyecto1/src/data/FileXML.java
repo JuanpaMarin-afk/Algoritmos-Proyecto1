@@ -1,5 +1,7 @@
 package data;
 
+import domain.CircularDoublyLinkedList;
+import domain.Security;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.parsers.DocumentBuilder;
@@ -16,6 +18,8 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 /**
  *
@@ -114,5 +118,40 @@ public class FileXML {
             e.printStackTrace();
         }
     }
-    
+
+    public CircularDoublyLinkedList readXMLBrand(String address, String elementType) {
+        CircularDoublyLinkedList loginList = new CircularDoublyLinkedList();
+        String type = "";
+        String name = "";
+        String password = "";
+        try {
+            File inputFile = new File(address);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+
+            NodeList nList = doc.getElementsByTagName(elementType);
+
+            for (int indice = 0; indice < nList.getLength(); indice++) {
+                Node nNode = nList.item(indice);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+
+                    type = eElement.getAttribute("Type");
+                    name = eElement.getElementsByTagName("Name").item(0).getTextContent();
+                    password = eElement.getElementsByTagName("Password").item(0).getTextContent();
+
+                    Security security = new Security(type,name,password);
+                    loginList.add(security);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return loginList;
+    }
+
 }//end class
