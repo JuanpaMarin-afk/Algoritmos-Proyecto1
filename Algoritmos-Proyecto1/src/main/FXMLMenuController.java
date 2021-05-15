@@ -210,17 +210,14 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
         try {
-
             user.setUser(this.textUser.getText());
             user.setPassword(this.textPassword.getText());
             user = xmlUser.readXMLLogIn(userAddress, "User", user);
-
-            if (!user.getType().equals("")) {
+            System.out.println(user.toString());
+            if (user.getType().equals("Administrator")) {
+                System.out.println("aaaa");
                 this.menuBar.setDisable(true);
             }
-            
-            
-
         } catch (Exception e) {
 
         }
