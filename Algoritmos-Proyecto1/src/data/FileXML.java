@@ -51,7 +51,7 @@ public class FileXML {
 
             DOMSource source = new DOMSource(doc);
 
-            StreamResult result = new StreamResult(new File(address + "\\" + fileName + ".xml"));
+            StreamResult result = new StreamResult(new File(fileName + ".xml"));
             transformer.transform(source, result);
 
         } catch (Exception e) {
