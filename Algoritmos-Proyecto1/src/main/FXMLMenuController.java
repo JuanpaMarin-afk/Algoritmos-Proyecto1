@@ -237,11 +237,11 @@ public class FXMLMenuController implements Initializable {
             } else {
                 if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
                     this.menuBar.setDisable(false);
-                    this.btnLogin.setDisable(false);
+                    this.btnLogin.setVisible(false);
                 }
                 if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
                     blockMenuItems();//Bloquea los demas menu items
-                    this.btnLogin.setDisable(false);
+                    this.btnLogin.setVisible(false);
                 }
             }
 
@@ -263,7 +263,8 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
-
+        btnClean(event);
+        
     }
 
     @FXML
