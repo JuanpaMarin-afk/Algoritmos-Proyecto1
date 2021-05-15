@@ -122,6 +122,8 @@ public class FXMLMenuController implements Initializable {
     
     @FXML
     private MenuItem addCareer;
+    @FXML
+    private MenuItem addStudent;
 
     @Override 
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -273,7 +275,7 @@ public class FXMLMenuController implements Initializable {
 
     }
 
-     //************************** CAREER **************************
+    //************************** CAREER **************************
     
     @FXML
     private void addCareer(ActionEvent event) {
@@ -282,6 +284,14 @@ public class FXMLMenuController implements Initializable {
         
     }
 
-     //************************** FIN CAREER **************************
+    //************************** FIN CAREER **************************
+
+    //************************** STUDENT **************************
     
+    @FXML
+    private void addStudent(ActionEvent event) {
+        
+    }
+    
+    //************************** FIN STUDENT **************************
 }//end class
