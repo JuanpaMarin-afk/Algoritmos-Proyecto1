@@ -144,12 +144,12 @@ public class FXMLMenuController implements Initializable {
         }
 
         //XML PARA CAREER
-//        xmlCareer = new FileXML();
-//        if (!xmlCareer.exist("CareerSystem.xml")) {
-//            xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
-//        } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
-//            //carreerList = xmlCareer.readXMLUser(careerAddress, "Career");
-//        }
+        xmlCareer = new FileXML();
+        if (!xmlCareer.exist("CareerSystem.xml")) {
+            xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+        } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
+            carreerList = xmlCareer.readXMLCareer(careerAddress, "Career");
+        }
     }
 
     //************************** USER **************************

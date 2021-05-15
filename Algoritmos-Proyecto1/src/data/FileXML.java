@@ -1,6 +1,8 @@
 package data;
 
+import domain.Career;
 import domain.CircularDoublyLinkedList;
+import domain.DoublyLinkedList;
 import domain.Security;
 import java.io.File;
 import java.io.IOException;
@@ -194,4 +196,36 @@ public class FileXML {
         return security;
     }
 
+    public DoublyLinkedList readXMLCareer(String address, String elementType) {
+        DoublyLinkedList carreerList = new DoublyLinkedList();
+        int id = 0;
+        String description = "";
+        try {
+            File inputFile = new File(address);
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(inputFile);
+            doc.getDocumentElement().normalize();
+
+            NodeList nList = doc.getElementsByTagName(elementType);
+
+            for (int indice = 0; indice < nList.getLength(); indice++) {
+                Node nNode = nList.item(indice);
+
+                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nNode;
+                    id = Integer.parseInt(eElement.getAttribute("Id"));
+                    description = eElement.getElementsByTagName("Description").item(0).getTextContent();
+
+                    Career career = new Career(id, description);
+                    carreerList.add(career);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return carreerList;
+    }
+    
 }//end class
