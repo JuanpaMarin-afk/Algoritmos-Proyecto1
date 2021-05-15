@@ -1,6 +1,7 @@
 package main;
 
 import data.FileXML;
+import domain.Career;
 import domain.CircularDoublyLinkedList;
 import domain.DoublyLinkedList;
 import domain.Security;
@@ -297,9 +298,62 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnRegisterCareer(ActionEvent event) {
-        
-        
-        
+//        boolean condition = false;
+//        try {
+//            if (!this.txtFielId.getText().equals("") && !this.txtFielDescription.getText().equals("")) {
+//                Career career = new Career(0,txtFielId.getText());//El id no es importante porque es consecutivo
+//
+//                if (carreerList.isEmpty()) {//Como es el primer valor lo agrega si o si
+//                    carreerList.add(career);
+//                    xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
+//                    Alert alert = new Alert(AlertType.INFORMATION);
+//                    alert.setTitle("Information");
+//                    alert.setHeaderText(null);
+//                    alert.setContentText("Career successfully registered");
+//                    alert.showAndWait();
+//                    condition = true;
+//                }
+//                if (!carreerList.contains(career)) {//Si no contiene al user, agregarlo //
+//                    carreerList.add(career);
+//                    xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
+//                    Alert alert = new Alert(AlertType.INFORMATION);
+//                    alert.setTitle("Information");
+//                    alert.setHeaderText(null);
+//                    alert.setContentText("Career successfully registered");
+//                    alert.showAndWait();
+//                    condition = true;
+//                } else {
+//
+//                    if (condition == false) {
+//                        Alert alert = new Alert(AlertType.INFORMATION);
+//                        alert.setTitle("Information");
+//                        alert.setHeaderText(null);
+//                        alert.setContentText("There is already a career in the system");
+//                        alert.showAndWait();
+//                    }
+//
+//                }
+//
+//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                alert.setHeaderText("");
+//                alert.setContentText("Do you want to add another Career?");
+//                Optional<ButtonType> result = alert.showAndWait();
+//                if (result.get() == ButtonType.OK) {
+//                    addCareer(event);
+//                } else {
+//                    btnClean(event);
+//                }
+//
+//            } else {
+//                Alert alert = new Alert(AlertType.WARNING);
+//                alert.setTitle("Information");
+//                alert.setHeaderText(null);
+//                alert.setContentText("You need to fill all the empty field.");
+//                alert.showAndWait();
+//            }
+//        } catch (Exception e) {
+//
+//        }
     }
     
     //************************** FIN CAREER **************************
