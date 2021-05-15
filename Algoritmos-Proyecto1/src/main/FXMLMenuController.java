@@ -71,10 +71,6 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private Button btnRegisterUser;
 
-    //ComboBox para definir si es administrador o estudiante
-    @FXML
-    private ComboBox comboBoxUser;
-
     //TextFiel de registrar nombre y contraseña
     @FXML
     private TextField txtFielName;
@@ -118,15 +114,8 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private Menu menuItemInscription;
 
-    @Override
+    @Override 
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
-
-        //Link donde saque como funciona el comboBox https://www.youtube.com/watch?v=rKv8eavrAio
-        //funcion del comboBox
-        ObservableList<String> list = FXCollections.observableArrayList("Student", "Administrator");
-        //Le agrega los dos items al combo antes definidos
-        comboBoxUser.setValue("Administrator");
-        comboBoxUser.setItems(list);
 
         //XML PARA USER
         xmlUser = new FileXML();
@@ -158,16 +147,13 @@ public class FXMLMenuController implements Initializable {
     private void menuUserModify(ActionEvent event) {
     }
 
-    @FXML
-    private void comboBoxUser(ActionEvent event) {
-    }
 
     @FXML
     private void btnRegisterUser(ActionEvent event) {
         boolean condition = false;
         try {
-            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("") && !this.comboBoxUser.getValue().toString().equals("")) {
-                Security security = new Security(this.comboBoxUser.getValue().toString(), this.txtFielName.getText(), this.txtFielPasword.getText());
+            if (!this.txtFielName.getText().equals("") && !this.txtFielPasword.getText().equals("")) {
+                Security security = new Security("Administrator", this.txtFielName.getText(), this.txtFielPasword.getText());
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
@@ -271,7 +257,6 @@ public class FXMLMenuController implements Initializable {
         //User
         this.gridUser.setVisible(false);
         this.btnRegisterUser.setVisible(false);
-        this.comboBoxUser.setValue("Administrator");
         this.txtFielName.setText("");
         this.txtFielPasword.setText("");
 
