@@ -92,6 +92,7 @@ public class FXMLMenuController implements Initializable {
     private TableView<?> tableUser;
 
     //**************************  fin MenuItemUser   **************************
+    
     //**************************  XML Users   **************************
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
@@ -270,6 +271,8 @@ public class FXMLMenuController implements Initializable {
     
     @FXML
     private void addCareer(ActionEvent event) {
+        
+        
         
     }
 
