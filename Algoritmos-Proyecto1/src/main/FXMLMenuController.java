@@ -94,7 +94,7 @@ public class FXMLMenuController implements Initializable {
 
     //**************************  fin MenuItemUser   **************************
     FileXML xmlUser;
-    String userAddress = "C:/Users/juanp/OneDrive/Documentos/NetBeansProjects/Algoritmos-Proyecto1/Algoritmos-Proyecto1/";
+    String userAddress = "UserSystem.xml";
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
