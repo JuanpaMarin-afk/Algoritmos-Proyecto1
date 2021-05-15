@@ -30,7 +30,8 @@ public class Security {
         this.password = security.password;
     }
 
-    public Security() {//Default
+    //Constructor Default
+    public Security() {
         
     }
 
