@@ -162,7 +162,6 @@ public class FXMLMenuController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("There is already a user in the system");
                     alert.showAndWait();
-
                 }
 
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
