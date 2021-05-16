@@ -151,7 +151,6 @@ public class FXMLMenuController implements Initializable {
             xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
         } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
             carreerList = xmlCareer.readXMLCareer(careerAddress, "Career");
-            System.out.println(carreerList.toString());
         }
     }
 
@@ -289,6 +288,9 @@ public class FXMLMenuController implements Initializable {
         this.txtFielPasword.setText("");
 
         //Career
+        this.gridCareer.setVisible(false);
+        this.txtFielDescription.setText("");
+        this.btnRegisterCareer.setVisible(false);
     }
 
     //************************** CAREER **************************
@@ -297,7 +299,7 @@ public class FXMLMenuController implements Initializable {
         btnClean(event);
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
-        this.txtFielId.setText(String.valueOf(carreerList.size()));
+        this.txtFielId.setText(String.valueOf(carreerList.size()+1));
         this.txtFielId.setEditable(false);
     }
 
