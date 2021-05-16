@@ -151,6 +151,7 @@ public class FXMLMenuController implements Initializable {
             xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
         } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
             carreerList = xmlCareer.readXMLCareer(careerAddress, "Career");
+            System.out.println(carreerList.toString());
         }
     }
 
@@ -305,7 +306,7 @@ public class FXMLMenuController implements Initializable {
         boolean condition = false;
         try {
             if (!this.txtFielId.getText().equals("") && !this.txtFielDescription.getText().equals("")) {
-                Career career = new Career(0, txtFielId.getText());//El id no es importante porque es consecutivo
+                Career career = new Career(0, txtFielDescription.getText());//El id no es importante porque es consecutivo
 
                 if (carreerList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     carreerList.add(career);
