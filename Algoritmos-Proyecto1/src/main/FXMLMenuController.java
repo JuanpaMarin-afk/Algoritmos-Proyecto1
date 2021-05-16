@@ -252,10 +252,14 @@ public class FXMLMenuController implements Initializable {
                 if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
                     this.menuBar.setDisable(false);
                     this.btnLogin.setVisible(false);
+                    this.textUser.setEditable(false);
+                    this.textPassword.setEditable(false);
                 }
                 if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
-                    blockMenuItems();//Bloquea los demas menu items
+                    unblockMenuItems();//Bloquea los demas menu items
                     this.btnLogin.setVisible(false);
+                    this.textUser.setEditable(false);
+                    this.textPassword.setEditable(false);
                 }
             }
         } catch (Exception e) {
@@ -263,7 +267,7 @@ public class FXMLMenuController implements Initializable {
         }
     }
 
-    public void blockMenuItems() {
+    public void unblockMenuItems() {
         this.menuBar.setDisable(false);
         this.menuItemUser.setDisable(true);
         this.menuItemCareers.setDisable(true);
@@ -274,10 +278,30 @@ public class FXMLMenuController implements Initializable {
         this.menuItemReport.setDisable(false);
     }
 
+    public void blockMenuItems() {
+        this.menuBar.setDisable(true);
+        this.menuItemUser.setDisable(true);
+        this.menuItemCareers.setDisable(true);
+        this.menuItemStudent.setDisable(true);
+        this.menuItemCourse.setDisable(true);
+        this.menuItemShedule.setDisable(true);
+        this.menuItemInscription.setDisable(true);
+        this.menuItemReport.setDisable(true);
+    }
+
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
         btnClean(event);
+        blockMenuItems();
+        this.textUser.setEditable(true);
+        this.textPassword.setEditable(true);
+        this.btnLogin.setVisible(true);
+        this.textPassword.setText("");
+        this.textUser.setText("");
+        user.setUser("");
+        user.setPassword("");
     }
+
     //************************** fin SEGURIDAD **************************
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
