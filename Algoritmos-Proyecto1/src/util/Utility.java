@@ -1,5 +1,6 @@
 package util;
 
+import domain.Career;
 import domain.Security;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -67,6 +68,10 @@ public class Utility {
                 Security secu1 = (Security) a;
                 Security secu2 = (Security) b;
                 return secu1.getUser().compareTo(secu2.getUser()) == 0;
+            case "career":
+                Career career1 = (Career) a;
+                Career career2 = (Career) b;
+                return career1.getDescription().compareTo(career2.getDescription()) == 0;
         }
         return false; // en cualquier otro caso 
     }
@@ -81,7 +86,9 @@ public class Utility {
         if (a instanceof Security && b instanceof Security) {
             return "security";
         }
-
+        if (a instanceof Career && b instanceof Career) {
+            return "career";
+        }
         return "Unknown";
     }
 
