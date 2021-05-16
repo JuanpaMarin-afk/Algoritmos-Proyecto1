@@ -26,6 +26,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -134,6 +135,10 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private Button btnRegisterCareer;
     //**************************  fin MenuItemCareer   **************************
+    @FXML
+    private MenuItem modifyCareer;
+    @FXML
+    private MenuItem removeCareer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
@@ -385,6 +390,51 @@ public class FXMLMenuController implements Initializable {
         } catch (Exception e) {
 
         }
+    }
+
+    @FXML
+    private void modifyCareer(ActionEvent event) {
+    }
+
+    @FXML
+    private void removeCareer(ActionEvent event) {
+        btnClean(event);
+
+//        TextInputDialog dialog = new TextInputDialog("");
+//        dialog.setTitle("Remove Employee");
+//        dialog.setHeaderText("");
+//        dialog.setContentText("Ingrese el Id del Empleado que desea buscar:");
+//
+//        Optional<String> identification = dialog.showAndWait();//recupera el valor de la ventana 
+//
+//        Employee employee = new Employee(Integer.parseInt(identification.get()));
+//
+//        try {
+//
+//            if (circularList.contains(employee)) {
+//                circularList.remove(employee);
+//                this.textMessage.setText("El Empleado con el Id: " + identification.get() + " se elimino de la lista");
+//                this.textMessage.setVisible(true);
+//            } else {
+//                this.textMessage.setText("El Empleado con el Id: " + identification.get() + " no se encuentra en la lista");
+//                this.textMessage.setVisible(true);
+//            }
+//
+//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//            alert.setHeaderText("");
+//            alert.setContentText("Desea eliminar a otro Empleado?");
+//
+//            Optional<ButtonType> result = alert.showAndWait();
+//            if (result.get() == ButtonType.OK) {
+//                removeEmployee(event);
+//            } else {
+//                buttonClean(event);
+//            }
+//
+//        } catch (Exception e) {
+//            this.textMessage.setText("La lista esta vacia");
+//            this.textMessage.setVisible(true);
+//        }
     }
 
     //************************** FIN CAREER **************************
