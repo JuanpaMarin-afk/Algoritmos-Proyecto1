@@ -163,19 +163,6 @@ public class FXMLMenuController implements Initializable {
     }
 
     @FXML
-    private void menuUserDisplay(ActionEvent event) {
-    }
-
-    @FXML
-    private void menuUserRemove(ActionEvent event) {
-    }
-
-    @FXML
-    private void menuUserModify(ActionEvent event) {
-
-    }
-
-    @FXML
     private void btnRegisterUser(ActionEvent event) {
         boolean condition = false;
         try {
@@ -234,7 +221,21 @@ public class FXMLMenuController implements Initializable {
         }
     }
 
+    @FXML
+    private void menuUserDisplay(ActionEvent event) {
+    }
+
+    @FXML
+    private void menuUserRemove(ActionEvent event) {
+    }
+
+    @FXML
+    private void menuUserModify(ActionEvent event) {
+
+    }
+
     //************************** fin USER **************************
+    //************************** SEGURIDAD **************************
     @FXML
     private void btnLogin(ActionEvent event) {//Inicia Sesion
         try {
@@ -276,9 +277,8 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private void btnExit(ActionEvent event) {//Cierra Sesion
         btnClean(event);
-
     }
-
+    //************************** fin SEGURIDAD **************************
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
         //User
@@ -299,7 +299,7 @@ public class FXMLMenuController implements Initializable {
         btnClean(event);
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
-        this.txtFielId.setText(String.valueOf(carreerList.size()+1));
+        this.txtFielId.setText(String.valueOf(carreerList.size() + 1));
         this.txtFielId.setEditable(false);
     }
 
