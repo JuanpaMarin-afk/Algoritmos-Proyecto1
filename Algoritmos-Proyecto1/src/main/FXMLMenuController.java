@@ -336,9 +336,9 @@ public class FXMLMenuController implements Initializable {
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
         if (!careerList.isEmpty()) {
-            this.txtFielId.setText(String.valueOf(domain.Career.autoId+1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId + 1));
         } else {
-            this.txtFielId.setText(String.valueOf(domain.Career.autoId+1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId + 1));
         }
 
         this.txtFielId.setEditable(false);
