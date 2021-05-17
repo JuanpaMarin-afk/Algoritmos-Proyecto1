@@ -89,7 +89,7 @@ public class FXMLMenuController implements Initializable {
 
     //Tabla de User
     @FXML
-    private TableView<?> tableUser;
+    private TableView<Security> tableUser;
 
     //**************************  fin MenuItemUser   **************************
     //**************************  XML Users   **************************

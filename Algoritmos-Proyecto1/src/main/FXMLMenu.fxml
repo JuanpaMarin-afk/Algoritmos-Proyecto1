@@ -131,10 +131,11 @@
                   </TextField>
                </children>
             </GridPane>
-            <TableView fx:id="tableUser" layoutX="73.0" layoutY="78.0" prefHeight="481.0" prefWidth="727.0" visible="false">
+            <TableView fx:id="tableUser" layoutX="73.0" layoutY="78.0" prefHeight="481.0" prefWidth="727.0">
               <columns>
-                <TableColumn prefWidth="342.0" text="Name" />
-                <TableColumn prefWidth="384.0" text="Profile" />
+                <TableColumn prefWidth="276.0" text="Name" />
+                <TableColumn prefWidth="238.0" text="Profile" />
+                  <TableColumn prefWidth="212.0" text="Type" />
               </columns>
             </TableView>
             <Button fx:id="btnRegisterUser" layoutX="692.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnRegisterUser" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
