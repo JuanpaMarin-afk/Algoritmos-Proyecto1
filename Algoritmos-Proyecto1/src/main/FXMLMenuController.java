@@ -314,11 +314,19 @@ public class FXMLMenuController implements Initializable {
         this.btnLogin.setVisible(true);
         this.textPassword.setText("");
         this.textUser.setText("");
+        updateXML();
         user.setUser("");
         user.setPassword("");
         this.btnClean.setVisible(false);
+        
     }
 
+    public void updateXML(){
+        if (user.getType().equals("Administrator")) {
+            
+        }
+    }
+    
     //************************** fin SEGURIDAD **************************
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
