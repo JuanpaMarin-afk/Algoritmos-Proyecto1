@@ -139,6 +139,7 @@ public class FXMLMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
+        //Boton clean, basurerito
         this.btnClean.setVisible(false);
 
         //XML PARA USER
