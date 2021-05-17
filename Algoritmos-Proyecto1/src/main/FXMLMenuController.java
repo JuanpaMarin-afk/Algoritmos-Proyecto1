@@ -7,11 +7,10 @@ import domain.DoublyLinkedList;
 import domain.ListException;
 import domain.Security;
 import domain.SinglyLinkedList;
+import domain.Student;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,7 +18,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -400,41 +398,50 @@ public class FXMLMenuController implements Initializable {
     private void removeCareer(ActionEvent event) {
         btnClean(event);
 
-//        TextInputDialog dialog = new TextInputDialog("");
-//        dialog.setTitle("Remove Employee");
-//        dialog.setHeaderText("");
-//        dialog.setContentText("Ingrese el Id del Empleado que desea buscar:");
-//
-//        Optional<String> identification = dialog.showAndWait();//recupera el valor de la ventana 
-//
-//        Employee employee = new Employee(Integer.parseInt(identification.get()));
-//
-//        try {
-//
-//            if (circularList.contains(employee)) {
-//                circularList.remove(employee);
-//                this.textMessage.setText("El Empleado con el Id: " + identification.get() + " se elimino de la lista");
-//                this.textMessage.setVisible(true);
-//            } else {
-//                this.textMessage.setText("El Empleado con el Id: " + identification.get() + " no se encuentra en la lista");
-//                this.textMessage.setVisible(true);
-//            }
-//
-//            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//            alert.setHeaderText("");
-//            alert.setContentText("Desea eliminar a otro Empleado?");
-//
-//            Optional<ButtonType> result = alert.showAndWait();
-//            if (result.get() == ButtonType.OK) {
-//                removeEmployee(event);
-//            } else {
-//                buttonClean(event);
-//            }
-//
-//        } catch (Exception e) {
-//            this.textMessage.setText("La lista esta vacia");
-//            this.textMessage.setVisible(true);
-//        }
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("Remove Career");
+        dialog.setHeaderText("");
+        dialog.setContentText("Input the description of the career that you want to delete:");
+        Optional<String> description = dialog.showAndWait();//recupera el valor de la ventana 
+
+        Career career = new Career(description.get());
+        try {
+
+            if (carreerList.contains(career)) {
+                
+                for (int i = 0; i < studentList.size(); i++) {
+                    
+                    Student student = (Student)studentList.getNode(i).data;
+                    
+//                    if (student.get) {
+//                        
+//                    }
+                    
+                }
+                
+                carreerList.remove(career);
+                //this.textMessage.setText("El Empleado con el Id: " + identification.get() + " se elimino de la lista");
+                //this.textMessage.setVisible(true);
+            } else {
+                //this.textMessage.setText("El Empleado con el Id: " + identification.get() + " no se encuentra en la lista");
+                //this.textMessage.setVisible(true);
+            }
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("");
+            alert.setContentText("Do you want to delete another Career?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                removeCareer(event);
+            } else {
+                btnClean(event);
+            }
+
+        } catch (Exception e) {
+            //this.textMessage.setText("La lista esta vacia");
+            //this.textMessage.setVisible(true);
+        }
     }
 
     //************************** FIN CAREER **************************
