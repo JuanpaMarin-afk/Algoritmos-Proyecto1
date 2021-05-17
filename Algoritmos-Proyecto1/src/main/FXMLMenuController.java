@@ -336,9 +336,9 @@ public class FXMLMenuController implements Initializable {
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
         if (!careerList.isEmpty()) {
-            this.txtFielId.setText(String.valueOf(careerList.size() + 1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId+1));
         } else {
-            this.txtFielId.setText(String.valueOf(1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId+1));
         }
 
         this.txtFielId.setEditable(false);
@@ -427,15 +427,11 @@ public class FXMLMenuController implements Initializable {
 ////                    }
 //                }
                 careerList.remove(career);
-
                 Career careerAux = new Career((Career) careerList.getNode(1).getData());
-                //jobPosition = (JobPosition) circularDoublyList.getNode(i).getData();
-                System.out.println("remueve" + careerList.size());
+                xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
                 for (int i = 1; i <= careerList.size(); i++) {
                     careerAux = (Career) careerList.getNode(i).getData();
-                    xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
                     xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
-                    System.out.println("escribio y actualizo xml");
                 }
 
                 Alert alert = new Alert(AlertType.INFORMATION);

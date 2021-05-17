@@ -11,7 +11,7 @@ public class Career {
     private String description;
 
     //Consecutivo
-    private static int autoId; //Se incrementa segun se crean estos objetos
+    public static int autoId; //Se incrementa segun se crean estos objetos
 
     //Constructor Default
     public Career() {
@@ -44,6 +44,10 @@ public class Career {
         this.id = id;
     }
 
+    public int gatAutoID(){
+        return autoId;
+    }
+    
     public String getDescription() {
         return description;
     }
