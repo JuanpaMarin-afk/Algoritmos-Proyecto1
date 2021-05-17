@@ -230,6 +230,7 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void menuUserRemove(ActionEvent event) {
+
     }
 
     @FXML
@@ -406,25 +407,31 @@ public class FXMLMenuController implements Initializable {
 
         Career career = new Career(description.get());
         try {
-
             if (carreerList.contains(career)) {
-                
-                for (int i = 0; i < studentList.size(); i++) {
-                    
-                    Student student = (Student)studentList.getNode(i).data;
-                    
-//                    if (student.get) {
-//                        
-//                    }
-                    
-                }
-                
+//                for (int i = 0; i < studentList.size(); i++) {
+//                    Student student = (Student)studentList.getNode(i).data;
+////                    if (student.get) {
+////                    }
+//                }
                 carreerList.remove(career);
-                //this.textMessage.setText("El Empleado con el Id: " + identification.get() + " se elimino de la lista");
-                //this.textMessage.setVisible(true);
+                for (int i = 0; i < carreerList.size(); i++) {
+                    Career careerAux = (Career) carreerList.getNext(i);
+                    xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+                    xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                }
+
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("The career: " + description + " was remove from the system");
+                alert.showAndWait();
+
             } else {
-                //this.textMessage.setText("El Empleado con el Id: " + identification.get() + " no se encuentra en la lista");
-                //this.textMessage.setVisible(true);
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no career with this description");
+                alert.showAndWait();
             }
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
