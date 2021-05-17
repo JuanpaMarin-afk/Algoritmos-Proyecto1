@@ -255,6 +255,14 @@ public class FXMLMenuController implements Initializable {
             } else {
                 if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
                     this.menuBar.setDisable(false);
+                    this.menuItemUser.setDisable(false);
+                    this.menuItemCareers.setDisable(false);
+                    this.menuItemStudent.setDisable(false);
+                    this.menuItemCourse.setDisable(false);
+                    this.menuItemShedule.setDisable(false);
+                    this.menuItemInscription.setDisable(false);
+                    this.menuItemReport.setDisable(false);
+
                     this.btnLogin.setVisible(false);
                     this.textUser.setEditable(false);
                     this.textPassword.setEditable(false);
@@ -327,7 +335,12 @@ public class FXMLMenuController implements Initializable {
         btnClean(event);
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
-        this.txtFielId.setText(String.valueOf(careerList.size() + 1));
+        if (!careerList.isEmpty()) {
+            this.txtFielId.setText(String.valueOf(careerList.size() + 1));
+        } else {
+            this.txtFielId.setText(String.valueOf(1));
+        }
+
         this.txtFielId.setEditable(false);
     }
 
@@ -414,9 +427,12 @@ public class FXMLMenuController implements Initializable {
 ////                    }
 //                }
                 careerList.remove(career);
+
+                Career careerAux = new Career((Career) careerList.getNode(1).getData());
+                //jobPosition = (JobPosition) circularDoublyList.getNode(i).getData();
                 System.out.println("remueve" + careerList.size());
-                for (int i = 1; i < careerList.size(); i++) {
-                    Career careerAux = (Career) careerList.getNext(i);
+                for (int i = 1; i <= careerList.size(); i++) {
+                    careerAux = (Career) careerList.getNode(i).getData();
                     xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
                     xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
                     System.out.println("escribio y actualizo xml");
