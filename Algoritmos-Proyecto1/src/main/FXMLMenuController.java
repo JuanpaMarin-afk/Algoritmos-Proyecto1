@@ -37,7 +37,7 @@ public class FXMLMenuController implements Initializable {
     //Atributos Aqui poner los atributos de la clase, tambien todo lo de la interfaz :D, porfa poner comentarios para ver cuales son cada una de ellas
     CircularDoublyLinkedList loginList = new CircularDoublyLinkedList(); //Lista para el modulo de seguridad
 
-    DoublyLinkedList carreerList = new DoublyLinkedList();//Lista para el modulo de las carreras
+    DoublyLinkedList careerList = new DoublyLinkedList();//Lista para el modulo de las carreras
 
     SinglyLinkedList studentList = new SinglyLinkedList();//Lista para el modulo de estudiantes
 
@@ -153,7 +153,7 @@ public class FXMLMenuController implements Initializable {
         if (!xmlCareer.exist("CareerSystem.xml")) {
             xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
         } else {//Como ya se creo el xml, entonces se va a cargar la lista con los datos que tenga el xml
-            carreerList = xmlCareer.readXMLCareer(careerAddress, "Career");
+            careerList = xmlCareer.readXMLCareer(careerAddress, "Career");
         }
     }
 
@@ -327,7 +327,7 @@ public class FXMLMenuController implements Initializable {
         btnClean(event);
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
-        this.txtFielId.setText(String.valueOf(carreerList.size() + 1));
+        this.txtFielId.setText(String.valueOf(careerList.size() + 1));
         this.txtFielId.setEditable(false);
     }
 
@@ -338,8 +338,8 @@ public class FXMLMenuController implements Initializable {
             if (!this.txtFielId.getText().equals("") && !this.txtFielDescription.getText().equals("")) {
                 Career career = new Career(0, txtFielDescription.getText());//El id no es importante porque es consecutivo
 
-                if (carreerList.isEmpty()) {//Como es el primer valor lo agrega si o si
-                    carreerList.add(career);
+                if (careerList.isEmpty()) {//Como es el primer valor lo agrega si o si
+                    careerList.add(career);
                     xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -348,8 +348,8 @@ public class FXMLMenuController implements Initializable {
                     alert.showAndWait();
                     condition = true;
                 }
-                if (!carreerList.contains(career)) {//Si no contiene al user, agregarlo //
-                    carreerList.add(career);
+                if (!careerList.contains(career)) {//Si no contiene al user, agregarlo //
+                    careerList.add(career);
                     xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
@@ -407,17 +407,19 @@ public class FXMLMenuController implements Initializable {
 
         Career career = new Career(description.get());
         try {
-            if (carreerList.contains(career)) {
+            if (careerList.contains(career)) {
 //                for (int i = 0; i < studentList.size(); i++) {
 //                    Student student = (Student)studentList.getNode(i).data;
 ////                    if (student.get) {
 ////                    }
 //                }
-                carreerList.remove(career);
-                for (int i = 0; i < carreerList.size(); i++) {
-                    Career careerAux = (Career) carreerList.getNext(i);
+                careerList.remove(career);
+                System.out.println("remueve" + careerList.size());
+                for (int i = 1; i < careerList.size(); i++) {
+                    Career careerAux = (Career) careerList.getNext(i);
                     xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
                     xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                    System.out.println("escribio y actualizo xml");
                 }
 
                 Alert alert = new Alert(AlertType.INFORMATION);
@@ -446,8 +448,7 @@ public class FXMLMenuController implements Initializable {
             }
 
         } catch (Exception e) {
-            //this.textMessage.setText("La lista esta vacia");
-            //this.textMessage.setVisible(true);
+            System.out.println("error " + e);
         }
     }
 

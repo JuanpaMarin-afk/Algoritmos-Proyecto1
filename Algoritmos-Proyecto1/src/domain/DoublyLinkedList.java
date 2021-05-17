@@ -15,7 +15,7 @@ public class DoublyLinkedList implements List {
     @Override
     public int size() throws ListException {
         if (isEmpty()) {
-
+            throw new ListException("List is empty : SinglyLinkedList");
         }
         Node aux = first;
         int count = 0;
