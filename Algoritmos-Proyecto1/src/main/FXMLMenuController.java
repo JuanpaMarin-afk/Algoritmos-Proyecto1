@@ -314,7 +314,7 @@ public class FXMLMenuController implements Initializable {
         this.btnLogin.setVisible(true);
         this.textPassword.setText("");
         this.textUser.setText("");
-        updateXML();
+       // updateXML();
         user.setUser("");
         user.setPassword("");
         this.btnClean.setVisible(false);
