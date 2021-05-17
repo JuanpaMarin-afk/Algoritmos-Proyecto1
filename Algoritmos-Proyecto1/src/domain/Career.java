@@ -19,7 +19,8 @@ public class Career {
 
     //Constructor Sobrecargado
     public Career(int id,String description) {
-        this.id = ++autoId;
+        this.id = autoId;
+        autoId++;
         this.description = description;
     }
 

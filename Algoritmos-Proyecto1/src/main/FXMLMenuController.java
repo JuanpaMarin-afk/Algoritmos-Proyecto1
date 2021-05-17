@@ -139,6 +139,8 @@ public class FXMLMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
+        this.btnClean.setVisible(false);
+
         //XML PARA USER
         xmlUser = new FileXML();
         if (!xmlUser.exist("UserSystem.xml")) {
@@ -265,12 +267,14 @@ public class FXMLMenuController implements Initializable {
                     this.btnLogin.setVisible(false);
                     this.textUser.setEditable(false);
                     this.textPassword.setEditable(false);
+                    this.btnClean.setVisible(true);
                 }
                 if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
                     unblockMenuItems();//Bloquea los demas menu items
                     this.btnLogin.setVisible(false);
                     this.textUser.setEditable(false);
                     this.textPassword.setEditable(false);
+                    this.btnClean.setVisible(true);
                 }
             }
         } catch (Exception e) {
@@ -311,6 +315,7 @@ public class FXMLMenuController implements Initializable {
         this.textUser.setText("");
         user.setUser("");
         user.setPassword("");
+        this.btnClean.setVisible(false);
     }
 
     //************************** fin SEGURIDAD **************************
@@ -335,9 +340,9 @@ public class FXMLMenuController implements Initializable {
         gridCareer.setVisible(true);
         btnRegisterCareer.setVisible(true);
         if (!careerList.isEmpty()) {
-            this.txtFielId.setText(String.valueOf(domain.Career.autoId + 1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId));
         } else {
-            this.txtFielId.setText(String.valueOf(domain.Career.autoId + 1));
+            this.txtFielId.setText(String.valueOf(domain.Career.autoId));
         }
 
         this.txtFielId.setEditable(false);
@@ -348,11 +353,12 @@ public class FXMLMenuController implements Initializable {
         boolean condition = false;
         try {
             if (!this.txtFielId.getText().equals("") && !this.txtFielDescription.getText().equals("")) {
-                Career career = new Career(0, txtFielDescription.getText());//El id no es importante porque es consecutivo
+                Career career = new Career(txtFielDescription.getText());//El id no es importante porque es consecutivo
 
                 if (careerList.isEmpty()) {//Como es el primer valor lo agrega si o si
-                    careerList.add(career);
-                    xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
+                    Career career2 = new Career(0,txtFielDescription.getText());
+                    careerList.add(career2);
+                    xmlCareer.writeXML(careerAddress, "Career", career2.getDataName(), career2.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -361,8 +367,9 @@ public class FXMLMenuController implements Initializable {
                     condition = true;
                 }
                 if (!careerList.contains(career)) {//Si no contiene al user, agregarlo //
-                    careerList.add(career);
-                    xmlCareer.writeXML(careerAddress, "Career", career.getDataName(), career.getData());
+                    Career career2 = new Career(0,txtFielDescription.getText());
+                    careerList.add(career2);
+                    xmlCareer.writeXML(careerAddress, "Career", career2.getDataName(), career2.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -419,26 +426,34 @@ public class FXMLMenuController implements Initializable {
 
         Career career = new Career(description.get());
         try {
-            if (careerList.contains(career)) {
+            if (!careerList.isEmpty()) {
+                if (careerList.contains(career)) {
 //                for (int i = 0; i < studentList.size(); i++) {
 //                    Student student = (Student)studentList.getNode(i).data;
 ////                    if (student.get) {
 ////                    }
 //                }
-                careerList.remove(career);
-                Career careerAux = new Career((Career) careerList.getNode(1).getData());
-                xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
-                for (int i = 1; i <= careerList.size(); i++) {
-                    careerAux = (Career) careerList.getNode(i).getData();
-                    xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                    careerList.remove(career);
+                    Career careerAux = new Career((Career) careerList.getNode(1).getData());
+                    xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+                    for (int i = 1; i <= careerList.size(); i++) {
+                        careerAux = (Career) careerList.getNode(i).getData();
+                        xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                    }
+
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("The career: " + description + " was remove from the system");
+                    alert.showAndWait();
+
+                } else {
+                    Alert alert = new Alert(AlertType.INFORMATION);
+                    alert.setTitle("Information");
+                    alert.setHeaderText(null);
+                    alert.setContentText("There is no career with this description");
+                    alert.showAndWait();
                 }
-
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Information");
-                alert.setHeaderText(null);
-                alert.setContentText("The career: " + description + " was remove from the system");
-                alert.showAndWait();
-
             } else {
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Information");
