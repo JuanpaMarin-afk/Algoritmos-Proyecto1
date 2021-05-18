@@ -176,7 +176,6 @@ public class FXMLMenuController implements Initializable {
 
                 if (loginList.isEmpty()) {//Como es el primer valor lo agrega si o si
                     loginList.add(security);
-                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -186,7 +185,6 @@ public class FXMLMenuController implements Initializable {
                 }
                 if (!loginList.contains(security)) {//Si no contiene al user, agregarlo //
                     loginList.add(security);
-                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -314,19 +312,39 @@ public class FXMLMenuController implements Initializable {
         this.btnLogin.setVisible(true);
         this.textPassword.setText("");
         this.textUser.setText("");
-       // updateXML();
+        //updateXML();
         user.setUser("");
         user.setPassword("");
         this.btnClean.setVisible(false);
-        
+
     }
 
-    public void updateXML(){
+    public void updateXML() {
         if (user.getType().equals("Administrator")) {
-            
+            try {
+                //Guarda User
+                xmlUser.createXML("Users", userAddress, "UserSystem");
+                Security security = new Security((Security) loginList.getNode(1).getData());
+                for (int i = 1; i <= loginList.size(); i++) {
+                    security = (Security) loginList.getNode(i).getData();
+                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
+                }
+                
+                //Guarda Career
+                xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+                Career careerAux = new Career((Career) careerList.getNode(1).getData());
+                for (int i = 1; i <= careerList.size(); i++) {
+                    careerAux = (Career) careerList.getNode(i).getData();
+                    xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                }
+                
+                
+            } catch (Exception e) {
+
+            }
         }
     }
-    
+
     //************************** fin SEGURIDAD **************************
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
@@ -365,9 +383,8 @@ public class FXMLMenuController implements Initializable {
                 Career career = new Career(txtFielDescription.getText());//El id no es importante porque es consecutivo
 
                 if (careerList.isEmpty()) {//Como es el primer valor lo agrega si o si
-                    Career career2 = new Career(0,txtFielDescription.getText());
+                    Career career2 = new Career(0, txtFielDescription.getText());
                     careerList.add(career2);
-                    xmlCareer.writeXML(careerAddress, "Career", career2.getDataName(), career2.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -376,9 +393,8 @@ public class FXMLMenuController implements Initializable {
                     condition = true;
                 }
                 if (!careerList.contains(career)) {//Si no contiene al user, agregarlo //
-                    Career career2 = new Career(0,txtFielDescription.getText());
+                    Career career2 = new Career(0, txtFielDescription.getText());
                     careerList.add(career2);
-                    xmlCareer.writeXML(careerAddress, "Career", career2.getDataName(), career2.getData());
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -437,19 +453,8 @@ public class FXMLMenuController implements Initializable {
         try {
             if (!careerList.isEmpty()) {
                 if (careerList.contains(career)) {
-//                for (int i = 0; i < studentList.size(); i++) {
-//                    Student student = (Student)studentList.getNode(i).data;
-////                    if (student.get) {
-////                    }
-//                }
                     careerList.remove(career);
-                    Career careerAux = new Career((Career) careerList.getNode(1).getData());
-                    xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
-                    for (int i = 1; i <= careerList.size(); i++) {
-                        careerAux = (Career) careerList.getNode(i).getData();
-                        xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
-                    }
-
+                    
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -470,7 +475,7 @@ public class FXMLMenuController implements Initializable {
                 alert.setContentText("There is no career with this description");
                 alert.showAndWait();
             }
-
+ 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("");
             alert.setContentText("Do you want to delete another Career?");
