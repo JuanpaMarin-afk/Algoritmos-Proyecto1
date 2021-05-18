@@ -48,11 +48,12 @@ public class FXMLMenuController implements Initializable {
 
     Security user = new Security();//User que se usa para el inicio de sesion
 
+    //**************************  Seucurity   **************************
     //TextFields para poder iniciar sesion
     @FXML
-    private TextField textUser;
+    private TextField textUserSecurity;
     @FXML
-    private PasswordField textPassword;
+    private PasswordField textPasswordSecurity;
 
     //Botones 
     @FXML
@@ -62,67 +63,66 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private Button btnClean;
 
-    //**************************  MenuItemUser   **************************
-    //GridPane de Reistrar User
+    //**************************  MENU BAR   **************************
     @FXML
-    private GridPane gridUser;
+    private MenuBar menuBar;
 
-    //Boton de registrar usuario
+    //Security (User)
     @FXML
-    private Button btnRegisterUser;
-
-    //TextFiel de registrar nombre y contraseña
-    @FXML
-    private TextField txtFielName;
-    @FXML
-    private TextField txtFielPasword;
-
-    //Menus Items de User
+    private Menu menuItemUser;
     @FXML
     private MenuItem menuUserAdd;
     @FXML
     private MenuItem menuUserDisplay;
-    @FXML
-    private MenuItem menuUserRemove;
-    @FXML
-    private MenuItem menuUserModify;
+    //fin Security(User)
 
-    //Tabla de User
-    @FXML
-    private TableView<Security> tableUser;
-
-    //**************************  fin MenuItemUser   **************************
-    //**************************  XML Users   **************************
-    FileXML xmlUser;
-    String userAddress = "UserSystem.xml";
-
-    //**************************  XML Careers   **************************
-    FileXML xmlCareer;
-    String careerAddress = "CareerSystem.xml";
-
-    //**************************  FIN XML Users   **************************
-    @FXML
-    private MenuBar menuBar;
-    @FXML
-    private Menu menuItemReport;
-    @FXML
-    private Menu menuItemUser;
+    //Career
     @FXML
     private Menu menuItemCareers;
     @FXML
+    private MenuItem addCareer;
+    @FXML
+    private MenuItem modifyCareer;
+    @FXML
+    private MenuItem removeCareer;
+    @FXML
+    private MenuItem displayCareer;
+    //fin Career
+
+    //Student
+    @FXML
     private Menu menuItemStudent;
+    @FXML
+    private MenuItem addStudent;
+    //fin Student
     @FXML
     private Menu menuItemCourse;
     @FXML
     private Menu menuItemShedule;
     @FXML
     private Menu menuItemInscription;
+    @FXML
+    private Menu menuItemReport;
 
-    //**************************  MenuItemCareer   **************************
+    //**************************  FIN MENU BAR   **************************
+    //**************************  User   **************************
     @FXML
-    private MenuItem addCareer;
+    private GridPane gridUser;
+    //Boton de registrar usuario
     @FXML
-    private MenuItem addStudent;
+    private Button btnRegisterUser;
+    //TextFiel de registrar nombre y contraseña
+    @FXML
+    private TextField txtFielName;
+    @FXML
+    private TextField txtFielPasword;
+
+    //Tabla de User
+    @FXML
+    private TableView<Security> tableUser;
+
+    //**************************  fin User   **************************
+    //**************************  Career   **************************
     @FXML
     private GridPane gridCareer;
     @FXML
@@ -131,12 +131,19 @@ public class FXMLMenuController implements Initializable {
     private TextField txtFielDescription;
     @FXML
     private Button btnRegisterCareer;
-    //**************************  fin MenuItemCareer   **************************
-    @FXML
-    private MenuItem modifyCareer;
-    @FXML
-    private MenuItem removeCareer;
+    //**************************  fin Career   **************************
 
+    // XML Users
+    FileXML xmlUser;
+    String userAddress = "UserSystem.xml";
+
+    //XML Careers   
+    FileXML xmlCareer;
+    String careerAddress = "CareerSystem.xml";
+
+    //XML Students
+    //XML Courses
+    //XML Shedule
     @Override
     public void initialize(URL url, ResourceBundle rb) {//Tipo constructor
         //Boton clean, basurerito
@@ -159,6 +166,112 @@ public class FXMLMenuController implements Initializable {
         }
     }
 
+    //************************** SEGURIDAD **************************
+    @FXML
+    private void btnLogin(ActionEvent event) {//Inicia Sesion
+        try {
+            user.setUser(this.textUserSecurity.getText());
+            user.setPassword(this.textPasswordSecurity.getText());
+            user = xmlUser.readXMLLogIn(userAddress, "User", user);
+            if (user.getType() == null) {//Si no hay ningun usuario registrado con esta informacion, muestra un mensaje al usuario
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("There is no user with this data");
+                alert.showAndWait();
+            } else {
+                if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
+                    this.menuBar.setDisable(false);
+                    this.menuItemUser.setDisable(false);
+                    this.menuItemCareers.setDisable(false);
+                    this.menuItemStudent.setDisable(false);
+                    this.menuItemCourse.setDisable(false);
+                    this.menuItemShedule.setDisable(false);
+                    this.menuItemInscription.setDisable(false);
+                    this.menuItemReport.setDisable(false);
+
+                    this.btnLogin.setVisible(false);
+                    this.textUserSecurity.setEditable(false);
+                    this.textPasswordSecurity.setEditable(false);
+                    this.btnClean.setVisible(true);
+                }
+                if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
+                    unblockMenuItems();//Bloquea los demas menu items
+                    this.btnLogin.setVisible(false);
+                    this.textUserSecurity.setEditable(false);
+                    this.textPasswordSecurity.setEditable(false);
+                    this.btnClean.setVisible(true);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("error" + e);
+        }
+    }
+
+    public void unblockMenuItems() {
+        this.menuBar.setDisable(false);
+        this.menuItemUser.setDisable(true);
+        this.menuItemCareers.setDisable(true);
+        this.menuItemStudent.setDisable(true);
+        this.menuItemCourse.setDisable(true);
+        this.menuItemShedule.setDisable(true);
+        this.menuItemInscription.setDisable(true);
+        this.menuItemReport.setDisable(false);
+    }
+
+    public void blockMenuItems() {
+        this.menuBar.setDisable(true);
+        this.menuItemUser.setDisable(true);
+        this.menuItemCareers.setDisable(true);
+        this.menuItemStudent.setDisable(true);
+        this.menuItemCourse.setDisable(true);
+        this.menuItemShedule.setDisable(true);
+        this.menuItemInscription.setDisable(true);
+        this.menuItemReport.setDisable(true);
+    }
+
+    @FXML
+    private void btnExit(ActionEvent event) {//Cierra Sesion
+        btnClean(event);
+        blockMenuItems();
+        this.textUserSecurity.setEditable(true);
+        this.textPasswordSecurity.setEditable(true);
+        this.btnLogin.setVisible(true);
+        this.textPasswordSecurity.setText("");
+        this.textUserSecurity.setText("");
+        //updateXML();
+        user.setUser("");
+        user.setPassword("");
+        this.btnClean.setVisible(false);
+
+    }
+
+    public void updateXML() {
+        if (user.getType().equals("Administrator")) {
+            try {
+                //Guarda User
+                xmlUser.createXML("Users", userAddress, "UserSystem");
+                Security security = new Security((Security) loginList.getNode(1).getData());
+                for (int i = 1; i <= loginList.size(); i++) {
+                    security = (Security) loginList.getNode(i).getData();
+                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
+                }
+
+                //Guarda Career
+                xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
+                Career careerAux = new Career((Career) careerList.getNode(1).getData());
+                for (int i = 1; i <= careerList.size(); i++) {
+                    careerAux = (Career) careerList.getNode(i).getData();
+                    xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
+                }
+
+            } catch (Exception e) {
+
+            }
+        }
+    }
+
+    //************************** fin SEGURIDAD **************************
     //************************** USER **************************
     @FXML
     private void menuUserAdd(ActionEvent event) {
@@ -228,124 +341,7 @@ public class FXMLMenuController implements Initializable {
     private void menuUserDisplay(ActionEvent event) {
     }
 
-    @FXML
-    private void menuUserRemove(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void menuUserModify(ActionEvent event) {
-
-    }
-
     //************************** fin USER **************************
-    //************************** SEGURIDAD **************************
-    @FXML
-    private void btnLogin(ActionEvent event) {//Inicia Sesion
-        try {
-            user.setUser(this.textUser.getText());
-            user.setPassword(this.textPassword.getText());
-            user = xmlUser.readXMLLogIn(userAddress, "User", user);
-            if (user.getType() == null) {//Si no hay ningun usuario registrado con esta informacion, muestra un mensaje al usuario
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Information");
-                alert.setHeaderText(null);
-                alert.setContentText("There is no user with this data");
-                alert.showAndWait();
-            } else {
-                if (user.getType().equals("Administrator")) { //Administrador tiene acceso a toda la funcionalidad del sistema
-                    this.menuBar.setDisable(false);
-                    this.menuItemUser.setDisable(false);
-                    this.menuItemCareers.setDisable(false);
-                    this.menuItemStudent.setDisable(false);
-                    this.menuItemCourse.setDisable(false);
-                    this.menuItemShedule.setDisable(false);
-                    this.menuItemInscription.setDisable(false);
-                    this.menuItemReport.setDisable(false);
-
-                    this.btnLogin.setVisible(false);
-                    this.textUser.setEditable(false);
-                    this.textPassword.setEditable(false);
-                    this.btnClean.setVisible(true);
-                }
-                if (user.getType().equals("Student")) {//Estudiante solo tiene acceso a la funcionalidad de reportes y debera digitar su carnet para solicitar su informacion
-                    unblockMenuItems();//Bloquea los demas menu items
-                    this.btnLogin.setVisible(false);
-                    this.textUser.setEditable(false);
-                    this.textPassword.setEditable(false);
-                    this.btnClean.setVisible(true);
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("error" + e);
-        }
-    }
-
-    public void unblockMenuItems() {
-        this.menuBar.setDisable(false);
-        this.menuItemUser.setDisable(true);
-        this.menuItemCareers.setDisable(true);
-        this.menuItemStudent.setDisable(true);
-        this.menuItemCourse.setDisable(true);
-        this.menuItemShedule.setDisable(true);
-        this.menuItemInscription.setDisable(true);
-        this.menuItemReport.setDisable(false);
-    }
-
-    public void blockMenuItems() {
-        this.menuBar.setDisable(true);
-        this.menuItemUser.setDisable(true);
-        this.menuItemCareers.setDisable(true);
-        this.menuItemStudent.setDisable(true);
-        this.menuItemCourse.setDisable(true);
-        this.menuItemShedule.setDisable(true);
-        this.menuItemInscription.setDisable(true);
-        this.menuItemReport.setDisable(true);
-    }
-
-    @FXML
-    private void btnExit(ActionEvent event) {//Cierra Sesion
-        btnClean(event);
-        blockMenuItems();
-        this.textUser.setEditable(true);
-        this.textPassword.setEditable(true);
-        this.btnLogin.setVisible(true);
-        this.textPassword.setText("");
-        this.textUser.setText("");
-        //updateXML();
-        user.setUser("");
-        user.setPassword("");
-        this.btnClean.setVisible(false);
-
-    }
-
-    public void updateXML() {
-        if (user.getType().equals("Administrator")) {
-            try {
-                //Guarda User
-                xmlUser.createXML("Users", userAddress, "UserSystem");
-                Security security = new Security((Security) loginList.getNode(1).getData());
-                for (int i = 1; i <= loginList.size(); i++) {
-                    security = (Security) loginList.getNode(i).getData();
-                    xmlUser.writeXML(userAddress, "User", security.getDataName(), security.getData());
-                }
-                
-                //Guarda Career
-                xmlCareer.createXML("Careers", careerAddress, "CareerSystem");
-                Career careerAux = new Career((Career) careerList.getNode(1).getData());
-                for (int i = 1; i <= careerList.size(); i++) {
-                    careerAux = (Career) careerList.getNode(i).getData();
-                    xmlCareer.writeXML(careerAddress, "Career", careerAux.getDataName(), careerAux.getData());
-                }
-                
-                
-            } catch (Exception e) {
-
-            }
-        }
-    }
-
-    //************************** fin SEGURIDAD **************************
     @FXML
     private void btnClean(ActionEvent event) {//Limpia la pantalla
         //User
@@ -454,7 +450,7 @@ public class FXMLMenuController implements Initializable {
             if (!careerList.isEmpty()) {
                 if (careerList.contains(career)) {
                     careerList.remove(career);
-                    
+
                     Alert alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information");
                     alert.setHeaderText(null);
@@ -475,7 +471,7 @@ public class FXMLMenuController implements Initializable {
                 alert.setContentText("There is no career with this description");
                 alert.showAndWait();
             }
- 
+
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("");
             alert.setContentText("Do you want to delete another Career?");
@@ -490,6 +486,10 @@ public class FXMLMenuController implements Initializable {
         } catch (Exception e) {
             System.out.println("error " + e);
         }
+    }
+
+    @FXML
+    private void displayCareer(ActionEvent event) {
     }
 
     //************************** FIN CAREER **************************
