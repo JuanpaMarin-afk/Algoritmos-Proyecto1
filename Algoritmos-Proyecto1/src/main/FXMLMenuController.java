@@ -239,6 +239,7 @@ public class FXMLMenuController implements Initializable {
         this.btnLogin.setVisible(true);
         this.textPasswordSecurity.setText("");
         this.textUserSecurity.setText("");
+        //Metodo que actualiza la base de datos al cerrar sesion
         //updateXML();
         user.setUser("");
         user.setPassword("");
