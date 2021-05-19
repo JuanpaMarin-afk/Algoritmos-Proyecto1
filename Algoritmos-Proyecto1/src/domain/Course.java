@@ -43,12 +43,20 @@ public class Course {
     public void setNameCourse(String nameCourse) {
         this.nameCourse = nameCourse;
     }
-
+    
+    //XML
+    public String [] getDataNameCourse(){
+        String[] dataNameCourse = {"IdCourse", "NameCourse"};
+        return dataNameCourse;
+    }
+    public String[] getData (){
+        String [ ] data = {String.valueOf(idCourse), nameCourse};
+        return data;
+}
     //ToString
     @Override
     public String toString() {
         return "Course{" + "idCourse=" + idCourse + ", nameCourse=" + nameCourse + '}';
     }
-    
     
 }
