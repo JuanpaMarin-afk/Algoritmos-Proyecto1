@@ -21,6 +21,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -119,7 +120,13 @@ public class FXMLMenuController implements Initializable {
 
     //Tabla de User
     @FXML
-    private TableView<Security> tableUser;
+    private TableView<Security> tableUser;     
+    @FXML
+    private TableColumn<Security, String> tCUserType;
+    @FXML
+    private TableColumn<Security, String> tCUserUser;
+    @FXML
+    private TableColumn<Security, String> tCUserPasword;
 
     //**************************  fin User   **************************
     //**************************  Career   **************************
@@ -131,6 +138,7 @@ public class FXMLMenuController implements Initializable {
     private TextField txtFielDescription;
     @FXML
     private Button btnRegisterCareer;
+
     //**************************  fin Career   **************************
 
     // XML Users
@@ -140,6 +148,8 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
+
+
 
     //XML Students
     //XML Courses

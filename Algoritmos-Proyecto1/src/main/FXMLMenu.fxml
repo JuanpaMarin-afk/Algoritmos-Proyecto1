@@ -132,9 +132,9 @@
             </GridPane>
             <TableView fx:id="tableUser" layoutX="73.0" layoutY="78.0" prefHeight="481.0" prefWidth="727.0" visible="false">
               <columns>
-                <TableColumn prefWidth="250.0" text="Name" />
-                <TableColumn prefWidth="248.0" text="Profile" />
-                  <TableColumn prefWidth="228.0" text="Type" />
+                <TableColumn fx:id="tCUserType" prefWidth="250.0" text="Type" />
+                <TableColumn fx:id="tCUserUser" prefWidth="248.0" text="User" />
+                  <TableColumn fx:id="tCUserPasword" prefWidth="228.0" text="Pasword" />
               </columns>
             </TableView>
             <Button fx:id="btnRegisterUser" layoutX="692.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnRegisterUser" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
