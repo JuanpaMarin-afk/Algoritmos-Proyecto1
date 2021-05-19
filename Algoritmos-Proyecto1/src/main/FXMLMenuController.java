@@ -108,6 +108,7 @@ public class FXMLMenuController implements Initializable {
     private Menu menuItemReport;
 
     //**************************  FIN MENU BAR   **************************
+    
     //**************************  User   **************************
     @FXML
     private GridPane gridUser;
@@ -131,6 +132,7 @@ public class FXMLMenuController implements Initializable {
     private TableColumn<Security, String> tCUserPasword;
 
     //**************************   fin User  **************************
+    
     //**************************    Career   **************************
     //Grid de carrera
     @FXML
@@ -155,6 +157,7 @@ public class FXMLMenuController implements Initializable {
     private DatePicker DPickerStudent;
 
     //**************************  fin Career  **************************
+    
     //**************************    Student   **************************
     //Grid de Estudiante
     @FXML
@@ -180,13 +183,38 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private TableView<?> tableStudent;
     
-    
-    
-    
-    
-    
+    @FXML
+    private TableColumn<?, ?> tcStudentid;
+    @FXML
+    private TableColumn<?, ?> tcStudentCollegeId;
+    @FXML
+    private TableColumn<?, ?> tcStudentLastName;
+    @FXML
+    private TableColumn<?, ?> tcStudentFirstName;
+    @FXML
+    private TableColumn<?, ?> tcStudentBirthday;
+    @FXML
+    private TableColumn<?, ?> tcStudentPhone;
+    @FXML
+    private TableColumn<?, ?> tcStudentEmail;
+    @FXML
+    private TableColumn<?, ?> tcStudentAddress;
     
     //**************************  fin Student  **************************
+    
+    //**************************    Course     **************************
+    
+    
+    
+    
+    
+    
+    
+    //**************************  fin Course   **************************
+    
+    
+    
+    
     // XML Users
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
@@ -194,11 +222,6 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
-
-
-
-
-
 
 
 
