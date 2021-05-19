@@ -203,7 +203,18 @@ public class FXMLMenuController implements Initializable {
     //**************************  fin Student  **************************
     
     //**************************    Course     **************************
+    @FXML
+    private GridPane gridCourse;
+    //TextFiel de gridregistrar Curso
+    @FXML
+    private TextField txtCourseId;
+    @FXML
+    private TextField txtCourseName;
+    //Boton de registrar Curso
+    @FXML
+    private Button btnRegisterCourse;
     
+    //Tabla de Curso
     
     
     
@@ -222,6 +233,9 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
+//*******************************************************************************
+
+
 
 
 
@@ -588,5 +602,9 @@ public class FXMLMenuController implements Initializable {
 
     @FXML
     private void btnRegisterStudent(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnRegisterCourse(ActionEvent event) {
     }
 }//end class
