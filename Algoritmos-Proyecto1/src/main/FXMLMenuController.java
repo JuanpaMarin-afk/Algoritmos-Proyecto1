@@ -132,14 +132,17 @@ public class FXMLMenuController implements Initializable {
 
     //**************************   fin User  **************************
     //**************************    Career   **************************
+    //Grid de carrera
     @FXML
     private GridPane gridCareer;
+    //TextFiel de registrar
     @FXML
     private TextField txtFielId;
     @FXML
     private TextField txtFielDescription;
+    //Boton de registrar Carrera
     @FXML
-    private Button btnRegisterCareer;
+    private Button btnRegisterCareer;  
     
     //tabla Career
     @FXML
@@ -153,17 +156,37 @@ public class FXMLMenuController implements Initializable {
 
     //**************************  fin Career  **************************
     //**************************    Student   **************************
+    //Grid de Estudiante
     @FXML
     private GridPane gridStudent;
+    //Boton de registrar Estudiante
     @FXML
     private Button btnRegisterStudent;
+    //TextFiel de gridregistrar estudiante
+        @FXML
+    private TextField txtStudentId;
+    @FXML
+    private TextField txtStudentLastN;
+    @FXML
+    private TextField txtStudentFirstN;
+    @FXML
+    private TextField txtStudentPhone;
+    @FXML
+    private TextField txtStudentEmail;
+    @FXML
+    private TextField txtStudentAddress;
+    
+    //Tabla de Estudiante
+    @FXML
+    private TableView<?> tableStudent;
     
     
     
     
     
     
-    //**************************  fin Career  **************************
+    
+    //**************************  fin Student  **************************
     // XML Users
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
@@ -171,6 +194,8 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
+
+
 
 
 

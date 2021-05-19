@@ -246,15 +246,15 @@
                         <Font name="Bodoni MT" size="40.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="54.0" prefWidth="403.0" GridPane.columnIndex="1" />
-                  <TextField layoutX="414.0" layoutY="10.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField layoutX="414.0" layoutY="73.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField layoutX="414.0" layoutY="154.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <TextField layoutX="414.0" layoutY="303.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                  <TextField layoutX="414.0" layoutY="368.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <TextField fx:id="txtStudentId" prefHeight="54.0" prefWidth="403.0" GridPane.columnIndex="1" />
+                  <TextField fx:id="txtStudentLastN" layoutX="414.0" layoutY="10.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtStudentFirstN" layoutX="414.0" layoutY="73.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtStudentPhone" layoutX="414.0" layoutY="154.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField fx:id="txtStudentEmail" layoutX="414.0" layoutY="303.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField fx:id="txtStudentAddress" layoutX="414.0" layoutY="368.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                </children>
             </GridPane>
-            <TableView disable="true" layoutX="15.0" layoutY="10.0" prefHeight="539.0" prefWidth="865.0" visible="false">
+            <TableView fx:id="tableStudent" disable="true" layoutX="15.0" layoutY="10.0" prefHeight="539.0" prefWidth="865.0" visible="false">
               <columns>
                 <TableColumn prefWidth="47.0" text="Id" />
                 <TableColumn prefWidth="89.0" text="College ID" />
