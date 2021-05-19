@@ -97,6 +97,7 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private MenuItem addStudent;
     //fin Student
+    
     @FXML
     private Menu menuItemCourse;
     @FXML
@@ -154,6 +155,8 @@ public class FXMLMenuController implements Initializable {
     //**************************    Student   **************************
     @FXML
     private GridPane gridStudent;
+    @FXML
+    private Button btnRegisterStudent;
     
     
     
@@ -168,6 +171,7 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
+
 
 
 
@@ -533,4 +537,8 @@ public class FXMLMenuController implements Initializable {
     }
 
     //************************** FIN STUDENT **************************
+
+    @FXML
+    private void btnRegisterStudent(ActionEvent event) {
+    }
 }//end class
