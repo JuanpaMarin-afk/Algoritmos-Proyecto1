@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -130,19 +131,19 @@
                   </TextField>
                </children>
             </GridPane>
-            <TableView fx:id="tableUser" layoutX="73.0" layoutY="78.0" prefHeight="481.0" prefWidth="727.0" visible="false">
+            <TableView fx:id="tableUser" layoutX="73.0" layoutY="41.0" prefHeight="499.0" prefWidth="728.0" visible="false">
               <columns>
                 <TableColumn fx:id="tCUserType" prefWidth="250.0" text="Type" />
                 <TableColumn fx:id="tCUserUser" prefWidth="248.0" text="User" />
                   <TableColumn fx:id="tCUserPasword" prefWidth="228.0" text="Pasword" />
               </columns>
             </TableView>
-            <Button fx:id="btnRegisterUser" layoutX="692.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnRegisterUser" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
+            <Button fx:id="btnRegisterUser" disable="true" layoutX="702.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnRegisterUser" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
                <font>
                   <Font name="Bodoni MT" size="19.0" />
                </font>
             </Button>
-            <Button fx:id="btnClean" layoutX="13.0" layoutY="567.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: transparent;">
+            <Button fx:id="btnClean" layoutX="14.0" layoutY="569.0" mnemonicParsing="false" onAction="#btnClean" prefHeight="70.0" prefWidth="96.0" style="-fx-background-color: transparent;">
                <graphic>
                   <ImageView fitHeight="111.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -166,7 +167,7 @@
                         <Font name="Bodoni MT" size="39.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="145.0" prefHeight="135.0" prefWidth="343.0" text="Description:" textFill="WHITE" GridPane.rowIndex="1">
+                  <Label layoutX="10.0" layoutY="145.0" prefHeight="135.0" prefWidth="343.0" text="Course name" textFill="WHITE" GridPane.rowIndex="1">
                      <font>
                         <Font name="Bodoni MT" size="39.0" />
                      </font>
@@ -183,11 +184,76 @@
                   </TextField>
                </children>
             </GridPane>
-            <Button fx:id="btnRegisterCareer" layoutX="702.0" layoutY="521.0" mnemonicParsing="false" onAction="#btnRegisterCareer" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
+            <Button fx:id="btnRegisterCareer" layoutX="702.0" layoutY="559.0" mnemonicParsing="false" onAction="#btnRegisterCareer" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d">
                <font>
                   <Font name="Bodoni MT" size="19.0" />
                </font>
             </Button>
+            <TableView fx:id="tableCarrer" layoutX="73.0" layoutY="41.0" prefHeight="499.0" prefWidth="728.0" visible="false">
+              <columns>
+                <TableColumn fx:id="tCCourseId" prefWidth="349.0" text="Id" />
+                <TableColumn fx:id="tCCourseName" minWidth="0.0" prefWidth="378.0" text="Name" />
+              </columns>
+            </TableView>
+            <GridPane fx:id="gridStudent" layoutX="49.0" layoutY="39.0" prefHeight="480.0" prefWidth="807.0" visible="false">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="197.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="245.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="69.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="270.0" minHeight="10.0" prefHeight="87.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="85.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="239.0" minHeight="10.0" prefHeight="82.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="50.0" prefWidth="354.0" text="Id:" textFill="WHITE">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="42.0" text="Last Name:" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="170.0" text="First Name:" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DPickerStudent" prefHeight="61.0" prefWidth="418.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label layoutX="10.0" layoutY="291.0" text="Birthday:" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="202.0" text="Phone Number:" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="264.0" text="Email:" textFill="WHITE" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="320.0" text="Address:" textFill="WHITE" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="Bodoni MT" size="40.0" />
+                     </font>
+                  </Label>
+                  <TextField prefHeight="54.0" prefWidth="403.0" GridPane.columnIndex="1" />
+                  <TextField layoutX="414.0" layoutY="10.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField layoutX="414.0" layoutY="73.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField layoutX="414.0" layoutY="154.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <TextField layoutX="414.0" layoutY="303.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <TextField layoutX="414.0" layoutY="368.0" prefHeight="49.0" prefWidth="403.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+               </children>
+            </GridPane>
          </children></AnchorPane>
    </center>
 </BorderPane>

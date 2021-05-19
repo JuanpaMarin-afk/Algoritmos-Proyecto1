@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -128,8 +129,8 @@ public class FXMLMenuController implements Initializable {
     @FXML
     private TableColumn<Security, String> tCUserPasword;
 
-    //**************************  fin User   **************************
-    //**************************  Career   **************************
+    //**************************   fin User  **************************
+    //**************************    Career   **************************
     @FXML
     private GridPane gridCareer;
     @FXML
@@ -138,9 +139,28 @@ public class FXMLMenuController implements Initializable {
     private TextField txtFielDescription;
     @FXML
     private Button btnRegisterCareer;
+    
+    //tabla Career
+    @FXML
+    private TableView<?> tableCarrer;
+    @FXML
+    private TableColumn<?, ?> tCCourseId;
+    @FXML
+    private TableColumn<?, ?> tCCourseName;
+    @FXML
+    private DatePicker DPickerStudent;
 
-    //**************************  fin Career   **************************
-
+    //**************************  fin Career  **************************
+    //**************************    Student   **************************
+    @FXML
+    private GridPane gridStudent;
+    
+    
+    
+    
+    
+    
+    //**************************  fin Career  **************************
     // XML Users
     FileXML xmlUser;
     String userAddress = "UserSystem.xml";
@@ -148,6 +168,8 @@ public class FXMLMenuController implements Initializable {
     //XML Careers   
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
+
+
 
 
 
