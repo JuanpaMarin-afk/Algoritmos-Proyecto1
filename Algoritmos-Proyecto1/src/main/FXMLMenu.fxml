@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
@@ -275,7 +276,7 @@
                </font>
             </Button>
             <Line endX="100.0" layoutX="154.0" layoutY="218.0" startX="-100.0" stroke="TRANSPARENT" />
-            <GridPane fx:id="gridCourse" layoutX="73.0" layoutY="57.0" prefHeight="456.0" prefWidth="708.0">
+            <GridPane fx:id="gridCourse" disable="true" layoutX="73.0" layoutY="57.0" prefHeight="430.0" prefWidth="748.0" visible="false">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -306,11 +307,12 @@
                         <Font name="Bodoni MT" size="48.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="txtCourseName" layoutX="364.0" layoutY="40.0" prefHeight="82.0" prefWidth="354.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="txtCourseName" layoutX="364.0" layoutY="40.0" prefHeight="73.0" prefWidth="336.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Bodoni MT" size="48.0" />
                      </font>
                   </TextField>
+                  <ComboBox fx:id="comboBoxCourse" prefHeight="75.0" prefWidth="381.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
             <Button fx:id="btnRegisterCourse" disable="true" layoutX="712.0" layoutY="579.0" mnemonicParsing="false" onAction="#btnRegisterCourse" prefHeight="48.0" prefWidth="136.0" style="-fx-background-color: transparent; -fx-border-color: #16bf9d;" text="Register" textFill="#16bf9d" visible="false">
@@ -318,6 +320,13 @@
                   <Font name="Bodoni MT" size="19.0" />
                </font>
             </Button>
+            <TableView fx:id="tableCourse" layoutX="54.0" layoutY="39.0" prefHeight="490.0" prefWidth="825.0">
+              <columns>
+                <TableColumn fx:id="tcCourseId" prefWidth="159.0" text="Id" />
+                <TableColumn fx:id="tcCourseName" prefWidth="283.0" text="Name" />
+                  <TableColumn fx:id="tcCourseCareer" prefWidth="382.0" text="Career" />
+              </columns>
+            </TableView>
          </children></AnchorPane>
    </center>
 </BorderPane>

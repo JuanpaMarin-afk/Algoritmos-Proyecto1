@@ -17,6 +17,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -210,15 +211,26 @@ public class FXMLMenuController implements Initializable {
     private TextField txtCourseId;
     @FXML
     private TextField txtCourseName;
+    //comboBox del grid de curso
+    @FXML
+    private ComboBox<?> comboBoxCourse;
     //Boton de registrar Curso
     @FXML
     private Button btnRegisterCourse;
     
     //Tabla de Curso
+    @FXML
+    private TableView<?> tableCourse;
+    @FXML
+    private TableColumn<?, ?> tcCourseId;
+    @FXML
+    private TableColumn<?, ?> tcCourseName;
+    @FXML
+    private TableColumn<?, ?> tcCourseCareer;
+
     
     
-    
-    
+
     
     
     //**************************  fin Course   **************************
@@ -234,6 +246,8 @@ public class FXMLMenuController implements Initializable {
     FileXML xmlCareer;
     String careerAddress = "CareerSystem.xml";
 //*******************************************************************************
+
+
 
 
 
