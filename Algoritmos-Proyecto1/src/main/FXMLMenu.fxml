@@ -320,7 +320,7 @@
                   <Font name="Bodoni MT" size="19.0" />
                </font>
             </Button>
-            <TableView fx:id="tableCourse" layoutX="54.0" layoutY="39.0" prefHeight="490.0" prefWidth="825.0">
+            <TableView fx:id="tableCourse" disable="true" layoutX="54.0" layoutY="39.0" prefHeight="490.0" prefWidth="825.0" visible="false">
               <columns>
                 <TableColumn fx:id="tcCourseId" prefWidth="159.0" text="Id" />
                 <TableColumn fx:id="tcCourseName" prefWidth="283.0" text="Name" />
